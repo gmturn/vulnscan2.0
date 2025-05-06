@@ -7,10 +7,12 @@ import os
 class ARPScanner:
     def __init__(self, config):
         # Define necessary attributes to send ARP requests
-        self.IPRange = config['IPRange']
-        self.HostIP = config['HostIP']
-        self.HostMAC = config['HostMAC']
-        self.Timeout = config['Timeout']
+        self.config = config
+
+        self.IPRange = self.config['IPRange']
+        self.HostIP = self.config['HostIP']
+        self.HostMAC = self.config['HostMAC']
+        self.Timeout = self.config['Timeout']
 
         # self.IPRange = config['DEFAULT']['IPRange']
         # self.HostIP = config['DEFAULT']['HostIP']

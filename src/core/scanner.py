@@ -13,7 +13,8 @@ class Scanner:
     def __init__(self, config):
         # Initializing Attributes from Config Data Type
 
-        self.config = return_config("/config/config.conf")
+        self.config = config
+        print(self.config)
         self.ARPScanner = ARPScanner(self.config)
 
         # self.config = config
@@ -27,3 +28,8 @@ class Scanner:
 
     def Send_ARP_Request(self):
         self.ARPScanner.ScanNetwork()
+
+
+config = return_config("config/config.conf")
+myScanner = Scanner(config)
+myScanner.Send_ARP_Request()

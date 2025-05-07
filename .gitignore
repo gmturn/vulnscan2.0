@@ -6,3 +6,4 @@ scanners/__pycache__/**
 models/__pycache__/**
 handlers/__pycache__/**
 core/__pycache__/**
+src/core/__pycache__/**

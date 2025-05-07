@@ -14,6 +14,8 @@ class ARPScanner:
         self.HostMAC = self.config['HostMAC']
         self.Timeout = self.config['Timeout']
 
+        self.ARPResults = ()
+
         # Initialize lists to store responses from IP addresses
         self.ActiveIPs = []
         self.InactiveIPs = []
@@ -32,6 +34,9 @@ class ARPScanner:
         Answered = ARP_Responses[0]
         Unanswered = ARP_Responses[1]
 
+        # return the scapy data type to be dealt with later in logger.py
+        self.ARPResults = (Answered, Unanswered)
+
         # Create List of Active IPs
         for element in Answered:
             device = NetworkDevice(
@@ -41,3 +46,5 @@ class ARPScanner:
         # Create List of Inactive IPs
         for element in Unanswered:
             self.InactiveIPs.append(element.pdst)
+
+        return self.ARPResults

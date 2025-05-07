@@ -1,5 +1,6 @@
 import scapy.all as scapy
 import os
+from models.Device import NetworkDevice
 
 # This class is used to send and receive ARP packets and return the results to the main scanner
 
@@ -8,16 +9,14 @@ class ARPScanner:
     def __init__(self, config):
         # Define necessary attributes to send ARP requests
         self.config = config
-        print(type(config))
         self.IPRange = self.config['IPRange']
         self.HostIP = self.config['HostIP']
         self.HostMAC = self.config['HostMAC']
         self.Timeout = self.config['Timeout']
 
-        # self.IPRange = config['DEFAULT']['IPRange']
-        # self.HostIP = config['DEFAULT']['HostIP']
-        # self.HostMAC = config['DEFAULT']['HostMAC']
-        # self.Timeout = config['DEFAULT']['Timeout']
+        # Initialize lists to store responses from IP addresses
+        self.ActiveIPs = []
+        self.InactiveIPs = []
 
     def ScanNetwork(self, save_to_file=True):
         request = scapy.ARP(pdst=self.IPRange)  # create ARP request packet
@@ -29,8 +28,16 @@ class ARPScanner:
         # Send ARP Request
         ARP_Responses = scapy.srp(request_broadcast, timeout=self.Timeout)
 
-        # Retrieving IP Lists based on response
-        ActiveIPs = ARP_Responses[0]
-        InactiveIPs = ARP_Responses[1]
+        # Categorizing Results (returned in a scapy data type and must be formatted)
+        Answered = ARP_Responses[0]
+        Unanswered = ARP_Responses[1]
 
-        print(ActiveIPs)
+        # Create List of Active IPs
+        for element in Answered:
+            device = NetworkDevice(
+                ipAddr=element[1].psrc, macAddr=element[1].hwsrc)
+            self.ActiveIPs.append(device)
+
+        # Create List of Inactive IPs
+        for element in Unanswered:
+            self.InactiveIPs.append(element.pdst)

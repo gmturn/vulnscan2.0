@@ -40,15 +40,15 @@ class NmapResult:
 
     # Print Model
     def __str__(self):
-        result = f"Host: {self.host_ip}\n"
+        result = f"Host: {self.hostIP}\n"
 
         # OS information
-        if self.os_info:
-            result += f"Operating System: {self.os_info.get('osmatch', 'N/A')}\n"
+        if self.OSInfo:
+            result += f"Operating System: {self.OSInfo.get('osmatch', 'N/A')}\n"
 
         # Open ports and services
         result += "Open Ports:\n"
-        if self.open_ports:
+        if self.openPorts:
             for service in self.services:
                 result += f"  - Port {service['port']}: {service['service']} (Version: {service['version']})\n"
         else:

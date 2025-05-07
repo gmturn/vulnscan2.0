@@ -7,6 +7,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', '..', 'src')))
 
 from utilities.u_utils import return_config  # noqa: E402
+from utilities.u_Nmap_Result import create_NmapResult_instance  # noqa: E402
 from models.m_Nmap_Result import NmapResult  # noqa: E402
 
 
@@ -88,9 +89,19 @@ class NmapScanner:
             self.Scanner.scan(hosts=self.hosts, arguments=arguments)
 
         # [3.0] RETURN NMAP SCAN RESULTS (list of m_Nmap_Result instances)
+        results = []
+        for host in self.Scanner.all_hosts():
+            scan_result = self.Scanner[host]
+            nmap_result = create_NmapResult_instance(scan_result, host)
+            results.append(nmap_result)
+
+        return results
 
 
 config = return_config("config/config.conf")
 myScanner = NmapScanner(config)
 myScanner.LoadIPs()
-myScanner.ScanHosts()
+results = myScanner.ScanHosts()
+
+for result in results:
+    print(result)

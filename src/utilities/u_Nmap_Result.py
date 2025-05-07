@@ -17,7 +17,7 @@ def create_NmapResult_instance(scan_result, hostIP):
 
     # checking and adding services results
     for protocol in scan_result.all_protocols():
-        open_ports = scan_result(protocol).keys()
+        open_ports = scan_result[protocol].keys()
         for port in open_ports:
             service = scan_result[protocol][port]['name']
             version = scan_result[protocol][port].get(

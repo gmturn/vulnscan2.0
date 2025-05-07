@@ -22,6 +22,7 @@ def return_config(config_path):
             'Verbose': str_to_bool(config.get(d, 'Verbose')),
             'ScanType': config.get(d, 'ScanType'),
             'Arguments': config.get(d, 'Arguments', fallback=''),
+            'SaveToFile': str_to_bool(config.get(d, 'SaveToFile')),
             'Traceroute': str_to_bool(config.get(d, 'Traceroute')),
             'ScanLimit': str_to_bool(config.get(d, 'ScanLimit')),
             'MaxScans': int(config.get(d, 'MaxScans')),

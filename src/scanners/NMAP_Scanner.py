@@ -17,6 +17,7 @@ class NmapScanner:
 
         self.ScanType = self.config['ScanType']
         self.Arguments = self.config['Arguments']
+        self.SaveToFile = self.config['SaveToFile']
         self.ScanLimit = self.config['ScanLimit']
         self.MaxScans = self.config['MaxScans']
         self.Traceroute = self.config['Traceroute']
@@ -62,6 +63,10 @@ class NmapScanner:
             arguments = f"{self.get_arguments(self.ScanType)} {self.Arguments}"
         else:
             arguments = self.get_arguments(self.ScanType)
+
+        if self.SaveToFile:
+            arguments += " -oN data/NmapScanResults.txt"
+
         if self.Traceroute:
             arguments += " --traceroute"
 
@@ -71,15 +76,6 @@ class NmapScanner:
                 self.hosts[:self.MaxScans]), arguments=arguments)
         else:
             self.Scanner.scan(hosts=self.hosts, arguments=arguments)
-
-        # TEST
-        for host in self.Scanner.all_hosts():
-            host_info = {
-                'state': self.Scanner[host].state(),
-                'hostnames': self.Scanner[host].hostnames(),
-                'protocols': self.Scanner[host].all_protocols()
-            }
-            print(host_info)
 
 
 config = return_config("config/config.conf")

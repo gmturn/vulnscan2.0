@@ -8,7 +8,7 @@ class ARPScanner:
     def __init__(self, config):
         # Define necessary attributes to send ARP requests
         self.config = config
-
+        print(type(config))
         self.IPRange = self.config['IPRange']
         self.HostIP = self.config['HostIP']
         self.HostMAC = self.config['HostMAC']

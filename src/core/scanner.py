@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', '..', 'src')))
 
 from utilities.utils import return_config  # noqa: E402
-from scanners import ARPScanner  # noqa: E402
+from scanners import ARP_Scanner  # noqa: E402
 
 
 class Scanner:
@@ -15,7 +15,7 @@ class Scanner:
 
         self.config = config
         print(self.config)
-        self.ARPScanner = ARPScanner(self.config)
+        self.ARPScanner = ARP_Scanner.ARPScanner(self.config)
 
         # self.config = config
         # self.c_IPRange = config['DEFAULT']['IPRange']

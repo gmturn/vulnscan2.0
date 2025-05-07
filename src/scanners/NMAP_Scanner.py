@@ -87,7 +87,7 @@ class NmapScanner:
         else:
             self.Scanner.scan(hosts=self.hosts, arguments=arguments)
 
-        # [3.0] FORMAT AND RETURN NMAP SCAN RESULTS
+        # [3.0] RETURN NMAP SCAN RESULTS (list of m_Nmap_Result instances)
 
 
 config = return_config("config/config.conf")

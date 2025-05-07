@@ -10,6 +10,19 @@ class NmapResult:
         self.services = services if services else []
         self.vulnerabilities = vulnerabilities if vulnerabilities else []
 
+    def addService(self, port, service, version):
+        self.services.append({
+            'port': port,
+            'service': service,
+            'version': version
+        })
+
+    def addVulnerability(self, CVE_ID, desc):
+        self.vulnerabilities.append({
+            'cve_id': CVE_ID,
+            'description': desc
+        })
+
     # Convert to dictionary data type
     def toDict(self):
         d = {
@@ -23,4 +36,30 @@ class NmapResult:
 
     # Convert to JSON data type
     def toJSON(self):
-        return json.dumps(self.toDict(), indent=1)
+        return json.dumps(self.toDict(), indent=4)
+
+    # Print Model
+    def __str__(self):
+        result = f"Host: {self.host_ip}\n"
+
+        # OS information
+        if self.os_info:
+            result += f"Operating System: {self.os_info.get('osmatch', 'N/A')}\n"
+
+        # Open ports and services
+        result += "Open Ports:\n"
+        if self.open_ports:
+            for service in self.services:
+                result += f"  - Port {service['port']}: {service['service']} (Version: {service['version']})\n"
+        else:
+            result += "  No open ports found.\n"
+
+        # Vulnerabilities
+        result += "Vulnerabilities:\n"
+        if self.vulnerabilities:
+            for vuln in self.vulnerabilities:
+                result += f"  - {vuln['cve_id']}: {vuln['description']}\n"
+        else:
+            result += "  No vulnerabilities detected.\n"
+
+        return result

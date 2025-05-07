@@ -6,7 +6,8 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', '..', 'src')))
 
-from utilities.utils import return_config  # noqa: E402
+from utilities.u_utils import return_config  # noqa: E402
+from models.m_Nmap_Result import NmapResult  # noqa: E402
 
 
 class NmapScanner:
@@ -85,6 +86,8 @@ class NmapScanner:
                 self.hosts[:self.MaxScans]), arguments=arguments)
         else:
             self.Scanner.scan(hosts=self.hosts, arguments=arguments)
+
+        # [3.0] FORMAT AND RETURN NMAP SCAN RESULTS
 
 
 config = return_config("config/config.conf")

@@ -4,7 +4,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', '..', 'src')))
 
-from models.Device import NetworkDevice  # noqa: E402
+from models.m_Device import NetworkDevice  # noqa: E402
 from utilities.write_to_file import *  # noqa: E402
 
 

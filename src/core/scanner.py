@@ -7,8 +7,9 @@ from logger import Logger
 sys.path.insert(0, os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', '..', 'src')))
 
-from utilities.utils import return_config  # noqa: E402
-from scanners import ARP_Scanner  # noqa: E402
+from utilities.u_utils import return_config  # noqa: E402
+from scanners.ARP_Scanner import ARPScanner  # noqa: E402
+from scanners.Nmap_Scanner import NmapScanner  # noqa: E402
 
 
 class Scanner:
@@ -17,11 +18,12 @@ class Scanner:
         self.config = config
 
         # ARP Attributes
-        self.ARPScanner = ARP_Scanner.ARPScanner(self.config)
+        self.ARPScanner = ARPScanner(self.config)
         self.ARPResults = ()
 
         # Nmap Attributes
-        self.NmapScanner = ()
+        self.NmapScanner = NmapScanner(self.config)
+        self.NmapResults = []
 
         # Other Attributes
         self.Logger = Logger()

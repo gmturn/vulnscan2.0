@@ -1,7 +1,7 @@
 import json
 
 
-class Nmap_Result:
+class NmapResult:
     def __init__(self, hostIP, OSInfo=None, openPorts=None, services=None, vulnerabilities=None):
         # Initialize Attributes -- if None, initialize respective data types
         self.hostIP = hostIP

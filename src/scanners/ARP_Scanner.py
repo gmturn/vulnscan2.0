@@ -21,7 +21,7 @@ class ARPScanner:
         self.ActiveIPs = []
         self.InactiveIPs = []
 
-    def ScanNetwork(self, save_to_file=True):
+    def ScanNetwork(self):
         request = scapy.ARP(pdst=self.IPRange)  # create ARP request packet
         broadcast = scapy.Ether(dst=self.HostMAC)  # create ethernet frame
 

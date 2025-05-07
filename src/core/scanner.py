@@ -29,11 +29,11 @@ class Scanner:
     def Send_ARP_Request(self):
         self.ARPResults = self.ARPScanner.ScanNetwork()
 
-    def Log_Results(self):
+    def Log_ARP_Results(self):
         self.Logger.LogARPResults(self.ARPResults, self.config['d_Data'])
 
 
 config = return_config("config/config.conf")
 myScanner = Scanner(config)
 myScanner.Send_ARP_Request()
-myScanner.Log_Results()
+myScanner.Log_ARP_Results()

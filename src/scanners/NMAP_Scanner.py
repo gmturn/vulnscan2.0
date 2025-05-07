@@ -22,6 +22,18 @@ class NmapScanner:
         self.Scanner = nmap.PortScanner()
         self.ScanResults = {}
 
+        self.hosts = []
+
+    def LoadIPs(self):
+        try:
+            with open(self.f_ActiveIPs, 'r') as f:
+                for line in f:
+                    self.hosts.append(line.strip())
+        except:
+            raise ValueError(
+                f"Error: Could not load IPs from {self.f_ActiveIPs}")
+
 
 config = return_config("config/config.conf")
 myScanner = NmapScanner(config)
+myScanner.LoadIPs()

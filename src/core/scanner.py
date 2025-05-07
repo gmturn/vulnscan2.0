@@ -15,15 +15,22 @@ class Scanner:
     def __init__(self, config):
         # Initializing Attributes from Config Data Type
         self.config = config
+
+        # ARP Attributes
         self.ARPScanner = ARP_Scanner.ARPScanner(self.config)
-        self.Logger = Logger()
         self.ARPResults = ()
+
+        # Nmap Attributes
+        self.NmapScanner = ()
+
+        # Other Attributes
+        self.Logger = Logger()
 
     def Send_ARP_Request(self):
         self.ARPResults = self.ARPScanner.ScanNetwork()
 
-    def Log_Results(self, d_Path="data/"):
-        self.Logger.LogARPResults(self.ARPResults)
+    def Log_Results(self):
+        self.Logger.LogARPResults(self.ARPResults, self.config['d_Data'])
 
 
 config = return_config("config/config.conf")

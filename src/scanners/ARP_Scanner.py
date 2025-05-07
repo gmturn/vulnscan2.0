@@ -13,6 +13,7 @@ class ARPScanner:
         self.HostIP = self.config['HostIP']
         self.HostMAC = self.config['HostMAC']
         self.Timeout = self.config['Timeout']
+        self.d_Data = self.config['d_Data']
 
         self.ARPResults = ()
 

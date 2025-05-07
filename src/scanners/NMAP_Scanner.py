@@ -56,21 +56,30 @@ class NmapScanner:
         return ' '.join(hosts)
 
     def ScanHosts(self):
-        # Prepare Arguments
+        # [1.0] PREPARE ARGUMENTS FOR SCAN
+        # (1.1) Initialize Arguments
         arguments = ""
+
+        # (1.2) Add arguments based on config.conf values
         if self.Arguments:
             # combine additional arguments
-            arguments = f"{self.get_arguments(self.ScanType)} {self.Arguments}"
+            arguments += f"{self.get_arguments(self.ScanType)} {self.Arguments}"
         else:
-            arguments = self.get_arguments(self.ScanType)
+            arguments += self.get_arguments(self.ScanType)
 
+        # (1.3) Save to .txt file if set to true
         if self.SaveToFile:
             arguments += " -oN data/NmapScanResults.txt"
 
+        # (1.4) Scan for vulnerabilities
+        arguments += " --script vuln"
+
+        # (1.5) Traceroute if set to true
         if self.Traceroute:
             arguments += " --traceroute"
 
-        # Scan hosts using given arguments
+        # [2.0] SCAN TARGETS
+        # (2.1) Scan hosts using given arguments
         if self.ScanLimit:
             self.Scanner.scan(hosts=self.format_hosts(
                 self.hosts[:self.MaxScans]), arguments=arguments)

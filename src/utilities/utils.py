@@ -20,7 +20,7 @@ def return_config(config_path):
             'HostMAC': config.get(d, 'HostMAC'),
             'Timeout': int(config.getint(d, 'Timeout')),
             'Verbose': str_to_bool(config.get(d, 'Verbose')),
-            'ScanType': config.get(d, 'ScanType'),
+            'ScanType': config.get(d, 'ScanType', fallback='basic'),
             'Arguments': config.get(d, 'Arguments', fallback=''),
             'SaveToFile': str_to_bool(config.get(d, 'SaveToFile')),
             'Traceroute': str_to_bool(config.get(d, 'Traceroute')),

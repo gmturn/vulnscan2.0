@@ -7,7 +7,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', '..', 'src')))
 
 from utilities.u_utils import return_config  # noqa: E402
-from utilities.u_Nmap_Result import create_NmapResult_instance  # noqa: E402
+# from utilities.u_Nmap_Result import create_NmapResult_instance  # noqa: E402
 from models.m_Nmap_Result import NmapResult  # noqa: E402
 
 
@@ -59,29 +59,18 @@ class NmapScanner:
 
     def ScanHosts(self):
         # [1.0] PREPARE ARGUMENTS FOR SCAN
-        # (1.1) Initialize Arguments
         arguments = ""
-
-        # (1.2) Add arguments based on config.conf values
         if self.Arguments:
-            # combine additional arguments
             arguments += f"{self.get_arguments(self.ScanType)} {self.Arguments}"
         else:
             arguments += self.get_arguments(self.ScanType)
-
-        # (1.3) Save to .txt file if set to true
         if self.SaveToFile:
-            arguments += " -oN data/NmapScanResults.txt"
-
-        # (1.4) Scan for vulnerabilities
+            arguments += " -oN data/_NmapScanResults.txt"
         arguments += " --script vuln"
-
-        # (1.5) Traceroute if set to true
         if self.Traceroute:
             arguments += " --traceroute"
 
         # [2.0] SCAN TARGETS
-        # (2.1) Scan hosts using given arguments
         if self.ScanLimit:
             self.Scanner.scan(hosts=self.format_hosts(
                 self.hosts[:self.MaxScans]), arguments=arguments)
@@ -92,7 +81,12 @@ class NmapScanner:
         results = []
         for host in self.Scanner.all_hosts():
             scan_result = self.Scanner[host]
-            nmap_result = create_NmapResult_instance(scan_result, host)
+            nmap_result = NmapResult(hostIP=host, n_scan_result=scan_result)
+
+            # call NmapResult methods
+            nmap_result.getAttributes()
+            nmap_result.store_serialize(f_path="serialize/nmap.txt")
+
             results.append(nmap_result)
 
         return results
@@ -107,9 +101,7 @@ config = return_config("config/config.conf")
 myScanner = NmapScanner(config)
 myScanner.LoadIPs()
 
-
 results = myScanner.ScanHosts()
-# results = myScanner.serialize_ScanHosts()
-print(results)
 
-results[0].store_serialize()
+for result in results:
+    print(result)

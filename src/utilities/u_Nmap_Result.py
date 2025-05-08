@@ -67,16 +67,25 @@ def format_n_services(n_scan_result):
         raise TypeError("Error: Could not format services.")
 
 
+def format_n_OSInfo(n_scan_result):
+    if isinstance(n_scan_result, dict):
+        osmatch = n_scan_result.get('osmatch', 'N/A')
+        os_1 = osmatch[0]
+        return os_1.get('name', 'N/A')
+
+    else:
+        raise TypeError("Error: Could not format OSInfo.")
+
+
 def extract_simple_data(scan_result):
     """
     Extract simplified data from the complex scan result.
     """
     simple_data = {
         'host_ip': scan_result.get('addresses', 'N/A').get('ipv4', 'N/A'),
-        'os_info': scan_result.get('os_match', {})[0].get('name', 'N/A'),
+        'os_info': format_n_OSInfo(scan_result),
         'open_ports': scan_result.get('open_ports', ['Functionality Not Yet Added']),
         'services': format_n_services(scan_result),
-        # get list of dictionaries containing vulnerabilities
         'vulnerabilities': scan_result.get('hostscript', [])
     }
 

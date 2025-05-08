@@ -1,9 +1,0 @@
-# Nmap 7.95 scan initiated Thu May  8 16:26:06 2025 as: nmap -oX - -sV -O -oN data/_NmapScanResults.txt --script vuln --traceroute
-Pre-scan script results:
-| broadcast-avahi-dos: 
-|   Discovered hosts:
-|     224.0.0.251
-|   After NULL UDP avahi packet DoS (CVE-2011-1002).
-|_  Hosts are all up (not vulnerable).
-WARNING: No targets were specified, so 0 hosts scanned.
-# Nmap done at Thu May  8 16:26:43 2025 -- 0 IP addresses (0 hosts up) scanned in 36.51 seconds

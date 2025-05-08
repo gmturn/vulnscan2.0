@@ -2,11 +2,11 @@ import json
 
 
 class NmapResult:
-    def __init__(self, hostIP, OSInfo=None, openPorts=None, services=None, vulnerabilities=None):
+    def __init__(self, hostIP=None, OSInfo=None, openPorts=None, services=None, vulnerabilities=None):
         # NOTE -- the n_ variable modifier is used to represent the full 'n'map scan data as opposed to the simple values that are extracted
 
         # Initialize Attributes -- if None, initialize respective data types
-        self.n_hostIP = hostIP
+        self.n_hostIP = hostIP if hostIP else ""
         self.n_OSInfo = OSInfo if OSInfo else {}
         self.n_openPorts = openPorts if openPorts else []
         self.n_services = services if services else []
@@ -32,10 +32,22 @@ class NmapResult:
             file.write(str(data))
 
     def load_serialize(self, f_path="serialize/nmap.txt"):
-        s_data = dict()
-        with open(f_path, 'r') as file:
-            file.read(dict(s_data))
-        return s_data
+        try:
+            with open(f_path, 'r') as file:
+                data = file.read()  # Read the file contents
+                # Deserialize the data into a dictionary
+                # Convert the JSON string into a Python dictionary
+                # replace all single quotes with double quotes to properly load json data
+                data = data.replace("'", '"')
+                data_dict = json.loads(data)
+                return data_dict
+
+        except FileNotFoundError:
+            print(f"Error: The file at {f_path} was not found.")
+            return {}
+        except json.JSONDecodeError:
+            print("Error: Failed to decode the JSON data.")
+            return {}
 
     def addVulnerability(self, CVE_ID, desc):
         self.n_vulnerabilities.append({

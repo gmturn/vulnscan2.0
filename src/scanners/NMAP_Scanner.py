@@ -97,10 +97,19 @@ class NmapScanner:
 
         return results
 
+    def serialize_ScanHosts(self, f_path="serialize/nmap.txt"):
+        nmapresult = NmapResult()
+        result_dict = nmapresult.load_serialize()
+        return result_dict
+
 
 config = return_config("config/config.conf")
 myScanner = NmapScanner(config)
 myScanner.LoadIPs()
-results = myScanner.ScanHosts()
 
-results[0].store_serialize()
+
+# results = myScanner.ScanHosts()
+results = myScanner.serialize_ScanHosts()
+print(results)
+
+# results[0].store_serialize()

@@ -62,13 +62,14 @@ class NmapResult:
         data = self.toDict()
 
         self.hostIP = f"{self.n_hostIP}"
-        self.OSInfo = {data.get('os_info').get('name')}
-        print(self.OSInfo)
+        self.OSInfo = {data.get('os_info', []).get('name', 'N/A')}
 
         for service in data.get('services', []):
             if isinstance(service, dict):
                 self.services[service.get('service')] = {
                     'port': service.get('port', 'N/A'), 'version': service.get('version', 'N/A')}
+
+        self.vulnerabilities = data.get('vulnerabilities')
 
         print()
         print(self.services)

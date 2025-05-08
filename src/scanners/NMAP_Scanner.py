@@ -103,5 +103,4 @@ myScanner = NmapScanner(config)
 myScanner.LoadIPs()
 results = myScanner.ScanHosts()
 
-for result in results:
-    print(result)
+results[0].store_serialize()

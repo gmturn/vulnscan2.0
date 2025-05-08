@@ -8,3 +8,4 @@ handlers/__pycache__/**
 core/__pycache__/**
 src/core/__pycache__/**
 data/**
+serialize/**

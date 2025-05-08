@@ -17,7 +17,13 @@ def create_NmapResult_instance(scan_result, hostIP):
 
     # checking and adding services results
     for protocol in scan_result.all_protocols():
+        print(f"Scanning protocol: {protocol}")
+
         open_ports = scan_result[protocol].keys()
+
+        if not open_ports:  # If no open ports are found for this protocol, print a debug message
+            print(f"No open ports found for protocol {protocol} on {hostIP}")
+
         for port in open_ports:
             service = scan_result[protocol][port]['name']
             version = scan_result[protocol][port].get(
@@ -32,9 +38,15 @@ def create_NmapResult_instance(scan_result, hostIP):
             script_name = script['id']
             script_output = script['output']
 
+            print(f"Found script: {script_name} with output: {script_output}")
+
             if 'CVE' in script_output:
                 CVE_ID = script_output.split()[0]
                 desc = ' '.join(script_output.split()[1:])
                 result.addVulnerability(CVE_ID, desc)
 
+            else:
+                print(f"No CVE found in script output: {script_output}")
+
+    result.toDict()
     return result

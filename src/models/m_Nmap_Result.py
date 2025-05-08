@@ -42,24 +42,13 @@ class NmapResult:
     def __str__(self):
         result = f"Host: {self.hostIP}\n"
 
+        # Get the dictionary representation of the instance
+        data = self.toDict()
+        print(data)
+
         # OS information
-        if self.OSInfo:
-            result += f"Operating System: {self.OSInfo.get('osmatch', 'N/A')}\n"
 
         # Open ports and services
-        result += "Open Ports:\n"
-        if self.openPorts:
-            for service in self.services:
-                result += f"  - Port {service['port']}: {service['service']} (Version: {service['version']})\n"
-        else:
-            result += "  No open ports found.\n"
 
         # Vulnerabilities
-        result += "Vulnerabilities:\n"
-        if self.vulnerabilities:
-            for vuln in self.vulnerabilities:
-                result += f"  - {vuln['cve_id']}: {vuln['description']}\n"
-        else:
-            result += "  No vulnerabilities detected.\n"
-
-        return result
+        return ""

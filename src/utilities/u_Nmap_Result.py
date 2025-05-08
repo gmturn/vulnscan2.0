@@ -51,14 +51,12 @@ def format_n_services(n_scan_result):
         # get the tcp key
         tcp = n_scan_result.get('tcp', {})
 
+        # iterate through dictionary; for key, value in tcp.items()
         for port, port_data in tcp.items():
-            # Extract the service name and port-specific details
-            # Service name for the key
-
             service_name = port_data.get('name', 'N/A')
             service_version = port_data.get('version', 'N/A')
 
-            # Add the entry in the 'services' dictionary with the specified format
+            # Add the formatted entry
             services[service_name] = {
                 'port': port,
                 'version': service_version
@@ -78,14 +76,8 @@ def extract_simple_data(scan_result):
         'os_info': scan_result.get('os_match', {})[0].get('name', 'N/A'),
         'open_ports': scan_result.get('open_ports', ['Functionality Not Yet Added']),
         'services': format_n_services(scan_result),
-        'vulnerabilities': []
+        # get list of dictionaries containing vulnerabilities
+        'vulnerabilities': scan_result.get('hostscript', [])
     }
 
-    for service in scan_result.get('services', []):
-        simple_data['services'][service['service']] = {
-            'port': service['port'],
-            'version': service.get('version', 'N/A')
-        }
-
-    simple_data['vulnerabilities'] = scan_result.get('vulnerabilities', [])
     return simple_data

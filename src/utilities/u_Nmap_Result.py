@@ -44,5 +44,23 @@ def create_NmapResult_instance(scan_result, hostIP):
     return result
 
 
-def extract_simple_data(n_scan_result):
-    pass
+def extract_simple_data(scan_result):
+    """
+    Extract simplified data from the complex scan result.
+    """
+    simple_data = {
+        'host_ip': scan_result.get('host_ip', ''),
+        'os_info': scan_result.get('os_info', {}).get('name', 'N/A'),
+        'open_ports': scan_result.get('open_ports', []),
+        'services': {},
+        'vulnerabilities': []
+    }
+
+    for service in scan_result.get('services', []):
+        simple_data['services'][service['service']] = {
+            'port': service['port'],
+            'version': service.get('version', 'N/A')
+        }
+
+    simple_data['vulnerabilities'] = scan_result.get('vulnerabilities', [])
+    return simple_data

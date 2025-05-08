@@ -18,20 +18,18 @@ class NmapResult:
         self.b_is_serialized = False
 
     def store_serialize(self, f_path="serialize/nmap.txt"):
-        """ Store the raw scan result into a file as JSON """
         data = self.toDict()  # Get data as a list of 2 dictionaries
         with open(f_path, 'w') as file:
             file.write(json.dumps(data, indent=4))
 
     def load_serialize(self, f_path="serialize/nmap.txt"):
-        """ Load the raw scan result from a serialized file """
         try:
             with open(f_path, 'r') as file:
-                data = file.read()  # Read the file contents
-                # Deserialize into the complex scan result
+                data = file.read()
                 self.n_scan_result = json.loads(data)
-                self.b_is_serialized = True  # Mark that data is loaded from a serialized file
+                self.b_is_serialized = True
                 self.getAttributes()  # Simplify the data for easy access
+
                 return self.n_scan_result
 
         except FileNotFoundError:

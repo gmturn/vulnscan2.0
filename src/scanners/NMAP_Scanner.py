@@ -105,13 +105,3 @@ class NmapScanner:
         nmapresult = NmapResult()
         result_dict = nmapresult.load_serialize()
         return result_dict
-
-
-# config = return_config("config/config.conf")
-# myScanner = NmapScanner(config)
-# myScanner.LoadIPs()
-
-# results = myScanner.ScanHosts()
-
-# for result in results:
-#     print(result)

@@ -1,27 +1,5 @@
 [
     {
-        "host_ip": "192.168.1.254",
-        "os_info": "Linux 4.15 - 5.19",
-        "open_ports": [
-            "Functionality Not Yet Added"
-        ],
-        "services": {
-            "domain": {
-                "port": 53,
-                "version": ""
-            },
-            "http": {
-                "port": 443,
-                "version": "1.4.69"
-            },
-            "rpcbind": {
-                "port": 111,
-                "version": ""
-            }
-        },
-        "vulnerabilities": []
-    },
-    {
         "host_ip": "192.168.1.66",
         "os_info": "Microsoft Windows 10 1607 - 11 23H2",
         "open_ports": [
@@ -85,6 +63,24 @@
         "services": {
             "upnp": {
                 "port": 2869,
+                "version": ""
+            }
+        },
+        "vulnerabilities": []
+    },
+    {
+        "host_ip": "192.168.1.77",
+        "os_info": "Apple iOS 15.0 - 15.6 (Darwin 21.1.0 - 21.6.0)",
+        "open_ports": [
+            "Functionality Not Yet Added"
+        ],
+        "services": {
+            "tcpwrapped": {
+                "port": 49152,
+                "version": ""
+            },
+            "iphone-sync": {
+                "port": 62078,
                 "version": ""
             }
         },

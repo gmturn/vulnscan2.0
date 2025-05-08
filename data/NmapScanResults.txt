@@ -1,4 +1,4 @@
-# Nmap 7.95 scan initiated Thu May  8 17:34:15 2025 as: nmap -oX - -sV -O -oN data/NmapScanResults.txt --script vuln --traceroute 192.168.1.66 192.168.1.70 192.168.1.254
+# Nmap 7.95 scan initiated Thu May  8 17:43:34 2025 as: nmap -oX - -sV -O -oN data/NmapScanResults.txt --script vuln --traceroute 192.168.1.66 192.168.1.70 192.168.1.77
 Pre-scan script results:
 | broadcast-avahi-dos: 
 |   Discovered hosts:
@@ -6,7 +6,7 @@ Pre-scan script results:
 |   After NULL UDP avahi packet DoS (CVE-2011-1002).
 |_  Hosts are all up (not vulnerable).
 Nmap scan report for 192.168.1.66
-Host is up (0.00023s latency).
+Host is up (0.00052s latency).
 Not shown: 992 closed tcp ports (reset)
 PORT     STATE    SERVICE       VERSION
 21/tcp   open     ftp           Microsoft ftpd
@@ -16,18 +16,18 @@ PORT     STATE    SERVICE       VERSION
 139/tcp  open     netbios-ssn   Microsoft Windows netbios-ssn
 445/tcp  open     microsoft-ds?
 2869/tcp open     http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
-|_http-aspnet-debug: ERROR: Script execution failed (use -d to debug)
-|_http-dombased-xss: Couldn't find any DOM based XSS.
-|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
 |_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-aspnet-debug: ERROR: Script execution failed (use -d to debug)
 3306/tcp open     mysql         MySQL (unauthorized)
 No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
 TCP/IP fingerprint:
-OS:SCAN(V=7.95%E=4%D=5/8%OT=21%CT=1%CU=42906%PV=Y%DS=0%DC=L%G=Y%TM=681D31AF
-OS:%P=i686-pc-windows-windows)SEQ(SP=101%GCD=1%ISR=10F%TI=I%CI=I%II=I%SS=S%
-OS:TS=A)SEQ(SP=102%GCD=1%ISR=106%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=105%GCD=1%
-OS:ISR=108%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=105%GCD=1%ISR=10C%TI=I%CI=I%II=I
-OS:%SS=S%TS=A)SEQ(SP=107%GCD=1%ISR=10A%TI=I%CI=I%II=I%SS=S%TS=A)OPS(O1=MFFD
+OS:SCAN(V=7.95%E=4%D=5/8%OT=21%CT=1%CU=44724%PV=Y%DS=0%DC=L%G=Y%TM=681D33DE
+OS:%P=i686-pc-windows-windows)SEQ(SP=104%GCD=1%ISR=10C%TI=I%CI=I%II=I%SS=S%
+OS:TS=A)SEQ(SP=105%GCD=1%ISR=10C%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=106%GCD=1%
+OS:ISR=10B%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=106%GCD=1%ISR=10C%TI=I%CI=I%II=I
+OS:%SS=S%TS=A)SEQ(SP=106%GCD=1%ISR=10D%TI=I%CI=I%II=I%SS=S%TS=A)OPS(O1=MFFD
 OS:7NW8ST11%O2=MFFD7NW8ST11%O3=MFFD7NW8NNT11%O4=MFFD7NW8ST11%O5=MFFD7NW8ST1
 OS:1%O6=MFFD7ST11)WIN(W1=FFFF%W2=FFFF%W3=FFFF%W4=FFFF%W5=FFFF%W6=FFFF)ECN(R
 OS:=Y%DF=Y%T=80%W=FFFF%O=MFFD7NW8NNS%CC=N%Q=)T1(R=Y%DF=Y%T=80%S=O%A=S+%F=AS
@@ -47,7 +47,7 @@ Host script results:
 |_smb-vuln-ms10-054: false
 
 Nmap scan report for 192.168.1.70
-Host is up (0.0077s latency).
+Host is up (0.0047s latency).
 Not shown: 999 filtered tcp ports (no-response)
 PORT     STATE SERVICE VERSION
 2869/tcp open  upnp    Microsoft IIS httpd
@@ -62,109 +62,24 @@ Network Distance: 1 hop
 
 TRACEROUTE
 HOP RTT     ADDRESS
-1   7.72 ms 192.168.1.70
+1   4.73 ms 192.168.1.70
 
-Nmap scan report for 192.168.1.254
-Host is up (0.0058s latency).
-Not shown: 996 closed tcp ports (reset)
-PORT    STATE    SERVICE  VERSION
-53/tcp  filtered domain
-80/tcp  open     http     lighttpd 1.4.69
-|_http-vuln-cve2014-3704: ERROR: Script execution failed (use -d to debug)
-|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
-| http-csrf: 
-| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.1.254
-|   Found the following possible CSRF vulnerabilities: 
-|     
-|     Path: http://192.168.1.254:80/
-|     Form id: 
-|     Form action: /cgi-bin/sysinfo.ha
-|     
-|     Path: http://192.168.1.254:80/
-|     Form id: 
-|     Form action: /cgi-bin/crestart.ha?1
-|     
-|     Path: http://192.168.1.254:80/
-|     Form id: 
-|     Form action: /cgi-bin/wrestart.ha?1
-|     
-|     Path: http://192.168.1.254:80/
-|     Form id: 
-|     Form action: /cgi-bin/wrestart.ha?2
-|     
-|     Path: http://192.168.1.254:80/
-|     Form id: 
-|     Form action: /cgi-bin/vrestart.ha?1
-|     
-|     Path: http://192.168.1.254:80/
-|     Form id: 
-|     Form action: /cgi-bin/vrestart.ha?2
-|     
-|     Path: http://192.168.1.254:80/
-|     Form id: 
-|_    Form action: /cgi-bin/devices.ha
-|_http-dombased-xss: Couldn't find any DOM based XSS.
-|_http-server-header: lighttpd/1.4.69
-111/tcp filtered rpcbind
-443/tcp open     ssl/http lighttpd 1.4.69
-| http-csrf: 
-| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.1.254
-|   Found the following possible CSRF vulnerabilities: 
-|     
-|     Path: https://192.168.1.254:443/
-|     Form id: 
-|     Form action: /cgi-bin/sysinfo.ha
-|     
-|     Path: https://192.168.1.254:443/
-|     Form id: 
-|     Form action: /cgi-bin/crestart.ha?1
-|     
-|     Path: https://192.168.1.254:443/
-|     Form id: 
-|     Form action: /cgi-bin/wrestart.ha?1
-|     
-|     Path: https://192.168.1.254:443/
-|     Form id: 
-|     Form action: /cgi-bin/wrestart.ha?2
-|     
-|     Path: https://192.168.1.254:443/
-|     Form id: 
-|     Form action: /cgi-bin/vrestart.ha?1
-|     
-|     Path: https://192.168.1.254:443/
-|     Form id: 
-|     Form action: /cgi-bin/vrestart.ha?2
-|     
-|     Path: https://192.168.1.254:443/
-|     Form id: 
-|_    Form action: /cgi-bin/devices.ha
-|_http-dombased-xss: Couldn't find any DOM based XSS.
-|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
-| http-slowloris-check: 
-|   VULNERABLE:
-|   Slowloris DOS attack
-|     State: LIKELY VULNERABLE
-|     IDs:  CVE:CVE-2007-6750
-|       Slowloris tries to keep many connections to the target web server open and hold
-|       them open as long as possible.  It accomplishes this by opening connections to
-|       the target web server and sending a partial request. By doing so, it starves
-|       the http server's resources causing Denial Of Service.
-|       
-|     Disclosure date: 2009-09-17
-|     References:
-|       http://ha.ckers.org/slowloris/
-|_      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750
-|_http-server-header: lighttpd/1.4.69
-MAC Address: BC:9A:8E:D2:16:01 (Humax Networks)
-Device type: general purpose|router
-Running: Linux 4.X|5.X, MikroTik RouterOS 7.X
-OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5 cpe:/o:mikrotik:routeros:7 cpe:/o:linux:linux_kernel:5.6.3
-OS details: Linux 4.15 - 5.19, OpenWrt 21.02 (Linux 5.4), MikroTik RouterOS 7.2 - 7.5 (Linux 5.6.3)
+Nmap scan report for 192.168.1.77
+Host is up (0.019s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT      STATE SERVICE      VERSION
+49152/tcp open  tcpwrapped
+62078/tcp open  iphone-sync?
+MAC Address: D6:81:92:50:00:3C (Unknown)
+Device type: phone
+Running: Apple iOS 15.X
+OS CPE: cpe:/o:apple:iphone_os:15
+OS details: Apple iOS 15.0 - 15.6 (Darwin 21.1.0 - 21.6.0)
 Network Distance: 1 hop
 
 TRACEROUTE
-HOP RTT     ADDRESS
-1   5.85 ms 192.168.1.254
+HOP RTT      ADDRESS
+1   18.98 ms 192.168.1.77
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Thu May  8 17:37:12 2025 -- 3 IP addresses (3 hosts up) scanned in 176.95 seconds
+# Nmap done at Thu May  8 17:45:17 2025 -- 3 IP addresses (3 hosts up) scanned in 103.33 seconds

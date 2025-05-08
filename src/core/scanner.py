@@ -14,9 +14,6 @@ from scanners.NMAP_Scanner import NmapScanner  # noqa: E402
 
 class Scanner:
     def __init__(self, config):
-        print()
-        print("Initialize Network Scanner ...")
-
         # Initializing Attributes from Config Data Type
         self.config = config
 
@@ -30,6 +27,9 @@ class Scanner:
 
         # Other Attributes
         self.Logger = Logger()
+
+        print()
+        print("Network Scanner Initialized")
 
     def Send_ARP_Scan(self):
         self.ARPResults = self.ARPScanner.ScanNetwork()

@@ -91,6 +91,5 @@ class NmapResult:
             self.vulnerabilities = simplified_data['vulnerabilities']
 
     # Print Model
-
     def __str__(self):
         return f"Host IP: {self.hostIP}\nOS Info: {self.OSInfo}\nServices: {self.services}\nVulnerabilities: {self.vulnerabilities}"

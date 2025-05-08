@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(
 
 from utilities.u_utils import return_config  # noqa: E402
 from scanners.ARP_Scanner import ARPScanner  # noqa: E402
-from scanners.Nmap_Scanner import NmapScanner  # noqa: E402
+from scanners.NMAP_Scanner import NmapScanner  # noqa: E402
 
 
 class Scanner:
@@ -29,19 +29,25 @@ class Scanner:
         self.Logger = Logger()
 
     def Send_ARP_Scan(self):
+        print("Launching ARP Scan ...")
         self.ARPResults = self.ARPScanner.ScanNetwork()
+        print("ARP Scan Complete.")
 
     def Log_ARP_Results(self):
         self.Logger.LogARPResults(self.ARPResults, self.config['d_Data'])
 
     def Send_Nmap_Scan(self):
-        pass
+        self.NmapResults = self.NmapScanner.ScanHosts()
 
     def Log_Nmap_Results(self):
-        pass
+        self.Logger.LogNmapResults(self.NmapResults, d_Path="data/")
 
 
 config = return_config("config/config.conf")
 myScanner = Scanner(config)
+
 myScanner.Send_ARP_Scan()
 myScanner.Log_ARP_Results()
+
+myScanner.Send_Nmap_Scan()
+myScanner.Log_Nmap_Results()

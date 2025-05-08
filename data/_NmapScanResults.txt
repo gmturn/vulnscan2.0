@@ -1,49 +1,9 @@
-# Nmap 7.95 scan initiated Thu May  8 16:01:36 2025 as: nmap -oX - -sV -O -oN data/_NmapScanResults.txt --script vuln --traceroute 192.168.1.66
+# Nmap 7.95 scan initiated Thu May  8 16:26:06 2025 as: nmap -oX - -sV -O -oN data/_NmapScanResults.txt --script vuln --traceroute
 Pre-scan script results:
 | broadcast-avahi-dos: 
 |   Discovered hosts:
 |     224.0.0.251
 |   After NULL UDP avahi packet DoS (CVE-2011-1002).
 |_  Hosts are all up (not vulnerable).
-Nmap scan report for 192.168.1.66
-Host is up (0.00081s latency).
-Not shown: 992 closed tcp ports (reset)
-PORT     STATE    SERVICE       VERSION
-21/tcp   open     ftp           Microsoft ftpd
-22/tcp   open     ssh           OpenSSH for_Windows_9.5 (protocol 2.0)
-53/tcp   filtered domain
-135/tcp  open     msrpc         Microsoft Windows RPC
-139/tcp  open     netbios-ssn   Microsoft Windows netbios-ssn
-445/tcp  open     microsoft-ds?
-2869/tcp open     http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
-|_http-aspnet-debug: ERROR: Script execution failed (use -d to debug)
-|_http-dombased-xss: Couldn't find any DOM based XSS.
-|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
-|_http-csrf: Couldn't find any CSRF vulnerabilities.
-3306/tcp open     mysql         MySQL (unauthorized)
-No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
-TCP/IP fingerprint:
-OS:SCAN(V=7.95%E=4%D=5/8%OT=21%CT=1%CU=43680%PV=Y%DS=0%DC=L%G=Y%TM=681D1BF8
-OS:%P=i686-pc-windows-windows)SEQ(SP=102%GCD=1%ISR=109%TI=I%CI=I%II=I%SS=S%
-OS:TS=A)SEQ(SP=103%GCD=1%ISR=10D%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=107%GCD=1%
-OS:ISR=107%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=108%GCD=1%ISR=108%TI=I%CI=I%II=I
-OS:%SS=S%TS=A)OPS(O1=MFFD7NW8ST11%O2=MFFD7NW8ST11%O3=MFFD7NW8NNT11%O4=MFFD7
-OS:NW8ST11%O5=MFFD7NW8ST11%O6=MFFD7ST11)WIN(W1=FFFF%W2=FFFF%W3=FFFF%W4=FFFF
-OS:%W5=FFFF%W6=FFFF)ECN(R=Y%DF=Y%T=80%W=FFFF%O=MFFD7NW8NNS%CC=N%Q=)T1(R=Y%D
-OS:F=Y%T=80%S=O%A=S+%F=AS%RD=0%Q=)T2(R=Y%DF=Y%T=80%W=0%S=Z%A=S%F=AR%O=%RD=0
-OS:%Q=)T3(R=Y%DF=Y%T=80%W=0%S=Z%A=O%F=AR%O=%RD=0%Q=)T4(R=Y%DF=Y%T=80%W=0%S=
-OS:A%A=O%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=
-OS:Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=A
-OS:R%O=%RD=0%Q=)U1(R=Y%DF=N%T=80%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=Z%RUCK=G%R
-OS:UD=G)IE(R=Y%DFI=N%T=80%CD=Z)
-
-Network Distance: 0 hops
-Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
-
-Host script results:
-|_smb-vuln-ms10-061: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
-|_samba-vuln-cve-2012-1182: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
-|_smb-vuln-ms10-054: false
-
-OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Thu May  8 16:02:48 2025 -- 1 IP address (1 host up) scanned in 71.95 seconds
+WARNING: No targets were specified, so 0 hosts scanned.
+# Nmap done at Thu May  8 16:26:43 2025 -- 0 IP addresses (0 hosts up) scanned in 36.51 seconds

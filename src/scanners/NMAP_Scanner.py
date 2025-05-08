@@ -57,6 +57,8 @@ class NmapScanner:
         return ' '.join(hosts)
 
     def ScanHosts(self):
+        print()
+        print("Launching Nmap Scan ...")
         # [1.0] PREPARE ARGUMENTS FOR SCAN
         arguments = ""
         if self.Arguments:
@@ -64,7 +66,7 @@ class NmapScanner:
         else:
             arguments += self.get_arguments(self.ScanType)
         if self.SaveToFile:
-            arguments += " -oN data/_NmapScanResults.txt"
+            arguments += " -oN data/NmapScanResults.txt"
         arguments += " --script vuln"
         if self.Traceroute:
             arguments += " --traceroute"
@@ -88,6 +90,7 @@ class NmapScanner:
 
             results.append(nmap_result)
 
+        print("Nmap Scan Complete ...")
         return results
 
     def serialize_ScanHosts(self, f_path="serialize/nmap.txt"):
@@ -96,11 +99,11 @@ class NmapScanner:
         return result_dict
 
 
-config = return_config("config/config.conf")
-myScanner = NmapScanner(config)
-myScanner.LoadIPs()
+# config = return_config("config/config.conf")
+# myScanner = NmapScanner(config)
+# myScanner.LoadIPs()
 
-results = myScanner.ScanHosts()
+# results = myScanner.ScanHosts()
 
-for result in results:
-    print(result)
+# for result in results:
+#     print(result)

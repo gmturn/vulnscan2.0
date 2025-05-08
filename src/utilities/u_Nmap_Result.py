@@ -42,3 +42,7 @@ def create_NmapResult_instance(scan_result, hostIP):
     result.toDict()
     result.getAttributes()
     return result
+
+
+def extract_simple_data(n_scan_result):
+    pass

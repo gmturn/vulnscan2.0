@@ -1,6 +1,7 @@
 import nmap
 import sys
 import os
+import time
 
 sys.path.insert(0, os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', '..', 'src')))
@@ -59,6 +60,8 @@ class NmapScanner:
         print()
         print("Launching Nmap Scan ...")
 
+        startTime = time.time()
+
         self.LoadIPs()
 
         # [1.0] PREPARE ARGUMENTS FOR SCAN
@@ -92,7 +95,10 @@ class NmapScanner:
 
             results.append(nmap_result)
 
-        print("Nmap Scan Complete.")
+        endTime = time.time()
+        duration = endTime - startTime
+
+        print(f"Nmap Scan Completed in {duration:.2f} seconds.")
         return results
 
     def serialize_ScanHosts(self, f_path="serialize/nmap.txt"):

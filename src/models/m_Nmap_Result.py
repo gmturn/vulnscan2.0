@@ -39,15 +39,14 @@ class NmapResult:
             print("Error: Failed to decode the JSON data.")
             return {}
 
+    # Might not be needed
     def addService(self, service_data):
-        """ Adds a service to the NmapResult's simplified services data """
         self.services[service_data['service']] = {
             'port': service_data['port'],
             'version': service_data['version']
         }
 
     def addVulnerability(self, CVE_ID, desc):
-        """ Adds a vulnerability to the NmapResult's simplified vulnerabilities data """
         self.vulnerabilities.append({
             'cve_id': CVE_ID,
             'description': desc
@@ -61,7 +60,7 @@ class NmapResult:
             'host_ip': self.hostIP,
             'os_info': self.OSInfo,
             'open_ports': self.openPorts,
-            'services': self.openPorts,
+            'services': self.services,
             'vulnerabilities': self.vulnerabilities
         }
 

@@ -1,1 +1,93 @@
-[]
+[
+    {
+        "host_ip": "192.168.1.254",
+        "os_info": "Linux 4.15 - 5.19",
+        "open_ports": [
+            "Functionality Not Yet Added"
+        ],
+        "services": {
+            "domain": {
+                "port": 53,
+                "version": ""
+            },
+            "http": {
+                "port": 443,
+                "version": "1.4.69"
+            },
+            "rpcbind": {
+                "port": 111,
+                "version": ""
+            }
+        },
+        "vulnerabilities": []
+    },
+    {
+        "host_ip": "192.168.1.66",
+        "os_info": "Microsoft Windows 10 1607 - 11 23H2",
+        "open_ports": [
+            "Functionality Not Yet Added"
+        ],
+        "services": {
+            "ftp": {
+                "port": 21,
+                "version": ""
+            },
+            "ssh": {
+                "port": 22,
+                "version": "for_Windows_9.5"
+            },
+            "domain": {
+                "port": 53,
+                "version": ""
+            },
+            "msrpc": {
+                "port": 135,
+                "version": ""
+            },
+            "netbios-ssn": {
+                "port": 139,
+                "version": ""
+            },
+            "microsoft-ds": {
+                "port": 445,
+                "version": ""
+            },
+            "http": {
+                "port": 2869,
+                "version": "2.0"
+            },
+            "mysql": {
+                "port": 3306,
+                "version": ""
+            }
+        },
+        "vulnerabilities": [
+            {
+                "id": "smb-vuln-ms10-061",
+                "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
+            },
+            {
+                "id": "samba-vuln-cve-2012-1182",
+                "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
+            },
+            {
+                "id": "smb-vuln-ms10-054",
+                "output": "false"
+            }
+        ]
+    },
+    {
+        "host_ip": "192.168.1.70",
+        "os_info": "Microsoft Windows 11 21H2",
+        "open_ports": [
+            "Functionality Not Yet Added"
+        ],
+        "services": {
+            "upnp": {
+                "port": 2869,
+                "version": ""
+            }
+        },
+        "vulnerabilities": []
+    }
+]

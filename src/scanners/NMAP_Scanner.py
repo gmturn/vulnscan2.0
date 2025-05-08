@@ -5,8 +5,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', '..', 'src')))
 
-from utilities.u_utils import return_config  # noqa: E402
-# from utilities.u_Nmap_Result import create_NmapResult_instance  # noqa: E402
+# from utilities.u_utils import return_config  # noqa: E402
 from models.m_Nmap_Result import NmapResult  # noqa: E402
 
 
@@ -59,6 +58,9 @@ class NmapScanner:
     def ScanHosts(self):
         print()
         print("Launching Nmap Scan ...")
+
+        self.LoadIPs()
+
         # [1.0] PREPARE ARGUMENTS FOR SCAN
         arguments = ""
         if self.Arguments:
@@ -90,7 +92,7 @@ class NmapScanner:
 
             results.append(nmap_result)
 
-        print("Nmap Scan Complete ...")
+        print("Nmap Scan Complete.")
         return results
 
     def serialize_ScanHosts(self, f_path="serialize/nmap.txt"):

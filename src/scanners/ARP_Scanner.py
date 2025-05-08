@@ -22,6 +22,7 @@ class ARPScanner:
         self.InactiveIPs = []
 
     def ScanNetwork(self):
+        print("Launching ARP Scan ...")
         request = scapy.ARP(pdst=self.IPRange)  # create ARP request packet
         broadcast = scapy.Ether(dst=self.HostMAC)  # create ethernet frame
 
@@ -48,4 +49,5 @@ class ARPScanner:
         for element in Unanswered:
             self.InactiveIPs.append(element.pdst)
 
+        print("ARP Scan Complete.")
         return self.ARPResults

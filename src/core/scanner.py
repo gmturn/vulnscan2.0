@@ -29,9 +29,7 @@ class Scanner:
         self.Logger = Logger()
 
     def Send_ARP_Scan(self):
-        print("Launching ARP Scan ...")
         self.ARPResults = self.ARPScanner.ScanNetwork()
-        print("ARP Scan Complete.")
 
     def Log_ARP_Results(self):
         self.Logger.LogARPResults(self.ARPResults, self.config['d_Data'])

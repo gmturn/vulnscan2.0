@@ -18,6 +18,9 @@ class Logger:
             raise TypeError(
                 "Error: Could not log ARP results. Data is not a tuple.")
 
+        f_ActiveIPs = "ActiveIPs.txt"
+        f_InactiveIPs = "InactiveIPs.txt"
+
         # Unpackaging the results passed to the method
         Answered = results[0]
         Unanswered = results[1]
@@ -37,8 +40,12 @@ class Logger:
         for element in Unanswered:
             InactiveIPs.append(element.pdst)
 
-        write_list(d_Path + "ActiveIPs.txt", ActiveIPs)
-        write_list(d_Path + "InactiveIPs.txt", InactiveIPs)
+        write_list(d_Path + f_ActiveIPs, ActiveIPs)
+        write_list(d_Path + f_InactiveIPs, InactiveIPs)
+
+        print("ARP scan results successfully logged to:")
+        print(f"\t-> {d_Path + f_ActiveIPs}")
+        print(f"\t-> {d_Path + f_InactiveIPs}")
 
     def LogNmapResults(self, results, d_Path="data/"):
         try:

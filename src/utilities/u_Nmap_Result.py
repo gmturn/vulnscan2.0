@@ -69,12 +69,15 @@ def format_n_services(n_scan_result):
 
 def format_n_OSInfo(n_scan_result):
     if isinstance(n_scan_result, dict):
-        osmatch = n_scan_result.get('osmatch', 'N/A')
-        os_1 = osmatch[0]
-        return os_1.get('name', 'N/A')
+        osmatch = n_scan_result.get('osmatch', [])
+
+        # Check if osmatch is empty
+        if osmatch:
+            os_1 = osmatch[0]
+            return os_1.get('name', 'N/A')
 
     else:
-        raise TypeError("Error: Could not format OSInfo.")
+        return 'N/A'
 
 
 def extract_simple_data(scan_result):

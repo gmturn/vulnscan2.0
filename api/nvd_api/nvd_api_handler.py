@@ -11,10 +11,10 @@ from api.nvd_api.utils.process_nvd_response import process_response  # noqa: E40
 
 
 class NVDHandler:
-    BASE_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 
     def __init__(self):
         self.session = requests.Session()
+        self.BASE_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 
     def get_api_key(self):
         try:

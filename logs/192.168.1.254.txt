@@ -1,0 +1,198 @@
+[
+    {
+        "host_ip": "192.168.1.254",
+        "os_info": "Linux 4.15 - 5.19",
+        "open_ports": [
+            "Functionality Not Yet Added"
+        ],
+        "services": {
+            "tcpwrapped": {
+                "port": 53,
+                "product": "",
+                "version": ""
+            },
+            "http": {
+                "port": 443,
+                "product": "lighttpd",
+                "version": "1.4.69"
+            },
+            "rpcbind": {
+                "port": 111,
+                "product": "",
+                "version": ""
+            }
+        },
+        "vulnerabilities": []
+    },
+    {
+        "n_scan_result": {
+            "hostnames": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ],
+            "addresses": {
+                "ipv4": "192.168.1.254",
+                "mac": "BC:9A:8E:D2:16:01"
+            },
+            "vendor": {
+                "BC:9A:8E:D2:16:01": "Humax Networks"
+            },
+            "status": {
+                "state": "up",
+                "reason": "arp-response"
+            },
+            "uptime": {
+                "seconds": "3597425",
+                "lastboot": "Fri Mar 28 06:32:22 2025"
+            },
+            "tcp": {
+                "53": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "tcpwrapped",
+                    "product": "",
+                    "version": "",
+                    "extrainfo": "",
+                    "conf": "8",
+                    "cpe": ""
+                },
+                "80": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "http",
+                    "product": "lighttpd",
+                    "version": "1.4.69",
+                    "extrainfo": "",
+                    "conf": "10",
+                    "cpe": "cpe:/a:lighttpd:lighttpd:1.4.69",
+                    "script": {
+                        "http-dombased-xss": "Couldn't find any DOM based XSS.",
+                        "http-csrf": "\nSpidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.1.254\n  Found the following possible CSRF vulnerabilities: \n    \n    Path: http://192.168.1.254:80/\n    Form id: \n    Form action: /cgi-bin/sysinfo.ha\n    \n    Path: http://192.168.1.254:80/\n    Form id: \n    Form action: /cgi-bin/crestart.ha?1\n    \n    Path: http://192.168.1.254:80/\n    Form id: \n    Form action: /cgi-bin/wrestart.ha?1\n    \n    Path: http://192.168.1.254:80/\n    Form id: \n    Form action: /cgi-bin/wrestart.ha?2\n    \n    Path: http://192.168.1.254:80/\n    Form id: \n    Form action: /cgi-bin/vrestart.ha?1\n    \n    Path: http://192.168.1.254:80/\n    Form id: \n    Form action: /cgi-bin/vrestart.ha?2\n    \n    Path: http://192.168.1.254:80/\n    Form id: \n    Form action: /cgi-bin/devices.ha\n",
+                        "http-stored-xss": "Couldn't find any stored XSS vulnerabilities.",
+                        "http-slowloris-check": "\n  VULNERABLE:\n  Slowloris DOS attack\n    State: LIKELY VULNERABLE\n    IDs:  CVE:CVE-2007-6750\n      Slowloris tries to keep many connections to the target web server open and hold\n      them open as long as possible.  It accomplishes this by opening connections to\n      the target web server and sending a partial request. By doing so, it starves\n      the http server's resources causing Denial Of Service.\n      \n    Disclosure date: 2009-09-17\n    References:\n      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750\n      http://ha.ckers.org/slowloris/\n",
+                        "http-server-header": "lighttpd/1.4.69"
+                    }
+                },
+                "111": {
+                    "state": "filtered",
+                    "reason": "no-response",
+                    "name": "rpcbind",
+                    "product": "",
+                    "version": "",
+                    "extrainfo": "",
+                    "conf": "3",
+                    "cpe": ""
+                },
+                "443": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "http",
+                    "product": "lighttpd",
+                    "version": "1.4.69",
+                    "extrainfo": "",
+                    "conf": "10",
+                    "cpe": "cpe:/a:lighttpd:lighttpd:1.4.69",
+                    "script": {
+                        "http-csrf": "\nSpidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.1.254\n  Found the following possible CSRF vulnerabilities: \n    \n    Path: https://192.168.1.254:443/\n    Form id: \n    Form action: /cgi-bin/sysinfo.ha\n    \n    Path: https://192.168.1.254:443/\n    Form id: \n    Form action: /cgi-bin/crestart.ha?1\n    \n    Path: https://192.168.1.254:443/\n    Form id: \n    Form action: /cgi-bin/wrestart.ha?1\n    \n    Path: https://192.168.1.254:443/\n    Form id: \n    Form action: /cgi-bin/wrestart.ha?2\n    \n    Path: https://192.168.1.254:443/\n    Form id: \n    Form action: /cgi-bin/vrestart.ha?1\n    \n    Path: https://192.168.1.254:443/\n    Form id: \n    Form action: /cgi-bin/vrestart.ha?2\n    \n    Path: https://192.168.1.254:443/\n    Form id: \n    Form action: /cgi-bin/devices.ha\n",
+                        "http-server-header": "lighttpd/1.4.69",
+                        "http-stored-xss": "Couldn't find any stored XSS vulnerabilities.",
+                        "http-slowloris-check": "\n  VULNERABLE:\n  Slowloris DOS attack\n    State: LIKELY VULNERABLE\n    IDs:  CVE:CVE-2007-6750\n      Slowloris tries to keep many connections to the target web server open and hold\n      them open as long as possible.  It accomplishes this by opening connections to\n      the target web server and sending a partial request. By doing so, it starves\n      the http server's resources causing Denial Of Service.\n      \n    Disclosure date: 2009-09-17\n    References:\n      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750\n      http://ha.ckers.org/slowloris/\n",
+                        "http-dombased-xss": "Couldn't find any DOM based XSS."
+                    }
+                }
+            },
+            "portused": [
+                {
+                    "state": "open",
+                    "proto": "tcp",
+                    "portid": "80"
+                },
+                {
+                    "state": "closed",
+                    "proto": "tcp",
+                    "portid": "1"
+                },
+                {
+                    "state": "closed",
+                    "proto": "udp",
+                    "portid": "44489"
+                }
+            ],
+            "osmatch": [
+                {
+                    "name": "Linux 4.15 - 5.19",
+                    "accuracy": "100",
+                    "line": "70534",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "4.X",
+                            "accuracy": "100",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:4"
+                            ]
+                        },
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "5.X",
+                            "accuracy": "100",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:5"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "OpenWrt 21.02 (Linux 5.4)",
+                    "accuracy": "100",
+                    "line": "72530",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "5.X",
+                            "accuracy": "100",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:5.4"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "MikroTik RouterOS 7.2 - 7.5 (Linux 5.6.3)",
+                    "accuracy": "100",
+                    "line": "91792",
+                    "osclass": [
+                        {
+                            "type": "router",
+                            "vendor": "MikroTik",
+                            "osfamily": "RouterOS",
+                            "osgen": "7.X",
+                            "accuracy": "100",
+                            "cpe": [
+                                "cpe:/o:mikrotik:routeros:7"
+                            ]
+                        },
+                        {
+                            "type": "router",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "5.X",
+                            "accuracy": "100",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:5.6.3"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

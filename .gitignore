@@ -7,5 +7,5 @@ models/__pycache__/**
 handlers/__pycache__/**
 core/__pycache__/**
 src/core/__pycache__/**
-data/**
-serialize/**
+api/nvd_api/utils/__pycache__/**
+api/nvd_api/__pycache__/**

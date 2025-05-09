@@ -1,5 +1,30 @@
 [
     {
+        "host_ip": "192.168.1.254",
+        "os_info": "Linux 4.15 - 5.19",
+        "open_ports": [
+            "Functionality Not Yet Added"
+        ],
+        "services": {
+            "tcpwrapped": {
+                "port": 53,
+                "product": "",
+                "version": ""
+            },
+            "http": {
+                "port": 443,
+                "product": "lighttpd",
+                "version": "1.4.69"
+            },
+            "rpcbind": {
+                "port": 111,
+                "product": "",
+                "version": ""
+            }
+        },
+        "vulnerabilities": []
+    },
+    {
         "host_ip": "192.168.1.66",
         "os_info": "Microsoft Windows 10 1607 - 11 23H2",
         "open_ports": [
@@ -8,49 +33,57 @@
         "services": {
             "ftp": {
                 "port": 21,
+                "product": "Microsoft ftpd",
                 "version": ""
             },
             "ssh": {
                 "port": 22,
+                "product": "OpenSSH",
                 "version": "for_Windows_9.5"
             },
             "domain": {
                 "port": 53,
+                "product": "",
                 "version": ""
             },
             "msrpc": {
                 "port": 135,
+                "product": "Microsoft Windows RPC",
                 "version": ""
             },
             "netbios-ssn": {
                 "port": 139,
+                "product": "Microsoft Windows netbios-ssn",
                 "version": ""
             },
             "microsoft-ds": {
                 "port": 445,
+                "product": "",
                 "version": ""
             },
             "http": {
                 "port": 2869,
+                "product": "Microsoft HTTPAPI httpd",
                 "version": "2.0"
             },
             "mysql": {
                 "port": 3306,
+                "product": "MySQL",
                 "version": ""
             }
         },
         "vulnerabilities": [
             {
-                "id": "smb-vuln-ms10-061",
-                "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
+                "id": "smb-vuln-ms10-054",
+                "output": "false"
             },
             {
                 "id": "samba-vuln-cve-2012-1182",
                 "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
             },
             {
-                "id": "smb-vuln-ms10-054",
-                "output": "false"
+                "id": "smb-vuln-ms10-061",
+                "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
             }
         ]
     },
@@ -63,24 +96,36 @@
         "services": {
             "upnp": {
                 "port": 2869,
+                "product": "Microsoft IIS httpd",
                 "version": ""
             }
         },
         "vulnerabilities": []
     },
     {
-        "host_ip": "192.168.1.77",
-        "os_info": "Apple iOS 15.0 - 15.6 (Darwin 21.1.0 - 21.6.0)",
+        "host_ip": "192.168.1.79",
+        "os_info": null,
+        "open_ports": [
+            "Functionality Not Yet Added"
+        ],
+        "services": {},
+        "vulnerabilities": []
+    },
+    {
+        "host_ip": "192.168.1.81",
+        "os_info": "Linux 3.2 - 4.14",
         "open_ports": [
             "Functionality Not Yet Added"
         ],
         "services": {
-            "tcpwrapped": {
-                "port": 49152,
+            "http": {
+                "port": 8080,
+                "product": "nginx",
                 "version": ""
             },
-            "iphone-sync": {
-                "port": 62078,
+            "jetdirect": {
+                "port": 9100,
+                "product": "",
                 "version": ""
             }
         },

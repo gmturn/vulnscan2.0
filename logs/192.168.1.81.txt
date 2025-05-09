@@ -1,0 +1,169 @@
+[
+    {
+        "host_ip": "192.168.1.81",
+        "os_info": "Linux 3.2 - 4.14",
+        "open_ports": [
+            "Functionality Not Yet Added"
+        ],
+        "services": {
+            "http": {
+                "port": 8080,
+                "product": "nginx",
+                "version": ""
+            },
+            "jetdirect": {
+                "port": 9100,
+                "product": "",
+                "version": ""
+            }
+        },
+        "vulnerabilities": []
+    },
+    {
+        "n_scan_result": {
+            "hostnames": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ],
+            "addresses": {
+                "ipv4": "192.168.1.81",
+                "mac": "14:CB:19:B1:0F:C1"
+            },
+            "vendor": {
+                "14:CB:19:B1:0F:C1": "HP"
+            },
+            "status": {
+                "state": "up",
+                "reason": "arp-response"
+            },
+            "uptime": {
+                "seconds": "2208612",
+                "lastboot": "Sun Apr 13 08:19:15 2025"
+            },
+            "tcp": {
+                "80": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "http",
+                    "product": "nginx",
+                    "version": "",
+                    "extrainfo": "",
+                    "conf": "10",
+                    "cpe": "cpe:/a:igor_sysoev:nginx",
+                    "script": {
+                        "http-dombased-xss": "Couldn't find any DOM based XSS.",
+                        "http-csrf": "Couldn't find any CSRF vulnerabilities.",
+                        "http-stored-xss": "Couldn't find any stored XSS vulnerabilities.",
+                        "http-aspnet-debug": "ERROR: Script execution failed (use -d to debug)",
+                        "http-slowloris-check": "\n  VULNERABLE:\n  Slowloris DOS attack\n    State: LIKELY VULNERABLE\n    IDs:  CVE:CVE-2007-6750\n      Slowloris tries to keep many connections to the target web server open and hold\n      them open as long as possible.  It accomplishes this by opening connections to\n      the target web server and sending a partial request. By doing so, it starves\n      the http server's resources causing Denial Of Service.\n      \n    Disclosure date: 2009-09-17\n    References:\n      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2007-6750\n      http://ha.ckers.org/slowloris/\n"
+                    }
+                },
+                "443": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "http",
+                    "product": "nginx",
+                    "version": "",
+                    "extrainfo": "",
+                    "conf": "10",
+                    "cpe": "cpe:/a:igor_sysoev:nginx",
+                    "script": {
+                        "http-vuln-cve2014-3704": "ERROR: Script execution failed (use -d to debug)",
+                        "http-dombased-xss": "Couldn't find any DOM based XSS.",
+                        "http-csrf": "Couldn't find any CSRF vulnerabilities.",
+                        "http-stored-xss": "Couldn't find any stored XSS vulnerabilities."
+                    }
+                },
+                "631": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "http",
+                    "product": "nginx",
+                    "version": "",
+                    "extrainfo": "",
+                    "conf": "10",
+                    "cpe": "cpe:/a:igor_sysoev:nginx",
+                    "script": {
+                        "http-vuln-cve2014-3704": "ERROR: Script execution failed (use -d to debug)",
+                        "http-csrf": "Couldn't find any CSRF vulnerabilities.",
+                        "http-dombased-xss": "Couldn't find any DOM based XSS.",
+                        "http-stored-xss": "Couldn't find any stored XSS vulnerabilities."
+                    }
+                },
+                "8080": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "http",
+                    "product": "nginx",
+                    "version": "",
+                    "extrainfo": "",
+                    "conf": "10",
+                    "cpe": "cpe:/a:igor_sysoev:nginx",
+                    "script": {
+                        "http-csrf": "Couldn't find any CSRF vulnerabilities.",
+                        "http-dombased-xss": "Couldn't find any DOM based XSS.",
+                        "http-stored-xss": "Couldn't find any stored XSS vulnerabilities."
+                    }
+                },
+                "9100": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "jetdirect",
+                    "product": "",
+                    "version": "",
+                    "extrainfo": "",
+                    "conf": "3",
+                    "cpe": ""
+                }
+            },
+            "portused": [
+                {
+                    "state": "open",
+                    "proto": "tcp",
+                    "portid": "80"
+                },
+                {
+                    "state": "closed",
+                    "proto": "tcp",
+                    "portid": "1"
+                },
+                {
+                    "state": "closed",
+                    "proto": "udp",
+                    "portid": "42977"
+                }
+            ],
+            "osmatch": [
+                {
+                    "name": "Linux 3.2 - 4.14",
+                    "accuracy": "100",
+                    "line": "68432",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "3.X",
+                            "accuracy": "100",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:3"
+                            ]
+                        },
+                        {
+                            "type": "general purpose",
+                            "vendor": "Linux",
+                            "osfamily": "Linux",
+                            "osgen": "4.X",
+                            "accuracy": "100",
+                            "cpe": [
+                                "cpe:/o:linux:linux_kernel:4"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

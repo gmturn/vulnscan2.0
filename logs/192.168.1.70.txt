@@ -34,7 +34,7 @@
                 "reason": "arp-response"
             },
             "uptime": {
-                "seconds": "43220",
+                "seconds": "62026",
                 "lastboot": "Thu May  8 09:49:07 2025"
             },
             "tcp": {
@@ -76,7 +76,7 @@
                 },
                 {
                     "name": "FreeBSD 6.2-RELEASE",
-                    "accuracy": "88",
+                    "accuracy": "86",
                     "line": "29729",
                     "osclass": [
                         {
@@ -84,61 +84,9 @@
                             "vendor": "FreeBSD",
                             "osfamily": "FreeBSD",
                             "osgen": "6.X",
-                            "accuracy": "88",
-                            "cpe": [
-                                "cpe:/o:freebsd:freebsd:6.2"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "Microsoft Windows 10",
-                    "accuracy": "86",
-                    "line": "74394",
-                    "osclass": [
-                        {
-                            "type": "general purpose",
-                            "vendor": "Microsoft",
-                            "osfamily": "Windows",
-                            "osgen": "10",
                             "accuracy": "86",
                             "cpe": [
-                                "cpe:/o:microsoft:windows_10"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "Microsoft Windows Server 2008 or 2008 Beta 3",
-                    "accuracy": "85",
-                    "line": "80082",
-                    "osclass": [
-                        {
-                            "type": "general purpose",
-                            "vendor": "Microsoft",
-                            "osfamily": "Windows",
-                            "osgen": "2008",
-                            "accuracy": "85",
-                            "cpe": [
-                                "cpe:/o:microsoft:windows_server_2008::beta3",
-                                "cpe:/o:microsoft:windows_server_2008"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "Microsoft Windows 10 1607",
-                    "accuracy": "85",
-                    "line": "74770",
-                    "osclass": [
-                        {
-                            "type": "general purpose",
-                            "vendor": "Microsoft",
-                            "osfamily": "Windows",
-                            "osgen": "10",
-                            "accuracy": "85",
-                            "cpe": [
-                                "cpe:/o:microsoft:windows_10"
+                                "cpe:/o:freebsd:freebsd:6.2"
                             ]
                         }
                     ]

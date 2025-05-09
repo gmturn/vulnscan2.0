@@ -79,7 +79,7 @@
                 "reason": "localhost-response"
             },
             "uptime": {
-                "seconds": "201727",
+                "seconds": "221276",
                 "lastboot": "Tue May  6 13:34:17 2025"
             },
             "tcp": {
@@ -153,10 +153,10 @@
                     "conf": "10",
                     "cpe": "cpe:/o:microsoft:windows",
                     "script": {
-                        "http-aspnet-debug": "ERROR: Script execution failed (use -d to debug)",
-                        "http-csrf": "Couldn't find any CSRF vulnerabilities.",
                         "http-dombased-xss": "Couldn't find any DOM based XSS.",
-                        "http-stored-xss": "Couldn't find any stored XSS vulnerabilities."
+                        "http-stored-xss": "Couldn't find any stored XSS vulnerabilities.",
+                        "http-csrf": "Couldn't find any CSRF vulnerabilities.",
+                        "http-aspnet-debug": "ERROR: Script execution failed (use -d to debug)"
                     }
                 },
                 "3306": {
@@ -198,7 +198,7 @@
                 {
                     "state": "closed",
                     "proto": "udp",
-                    "portid": "30611"
+                    "portid": "41995"
                 }
             ],
             "osmatch": [
@@ -396,16 +396,16 @@
                     ]
                 },
                 {
-                    "name": "Microsoft Windows 10 1607",
-                    "accuracy": "94",
-                    "line": "74626",
+                    "name": "Microsoft Windows 10 1809 - 21H2",
+                    "accuracy": "93",
+                    "line": "75084",
                     "osclass": [
                         {
                             "type": "general purpose",
                             "vendor": "Microsoft",
                             "osfamily": "Windows",
                             "osgen": "10",
-                            "accuracy": "94",
+                            "accuracy": "93",
                             "cpe": [
                                 "cpe:/o:microsoft:windows_10"
                             ]

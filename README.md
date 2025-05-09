@@ -37,7 +37,7 @@ This tool allows you to:
 - **`ScanType`:** _Options:_ `basic`, `stealth`, `aggressive`, `os`. These options correspond to the Nmap arguments `-sV`, `-sS`, `-A`, `-O`, respectively. This option is the base of the Nmap scan arguments.
 - **`Arguments`:** List any additional desired Nmap arguments. _ex. `-O  --version-intensity 8`_
 - **`SaveToFile`:** If `true`, raw Nmap scan results will be outputted to `/data/NmapScanResults.txt`
-- **`Traceroute`:** Specify traceroute boolean (only affects the `NmapScanResults txt file` file if `**SaveToFile**` is enabled)
+- **`Traceroute`:** Specify traceroute boolean (only affects the `NmapScanResults.txt file` file if **`SaveToFile`** is enabled)
 - **`ScanLimit`:** Toggle a limit of Nmap scans sent
 - **`MaxScans`:** Specify the maximum hosts to be Nmap scanned
 - **`d_Data`:** Specify the directory for output files (will have greater functionality in further updates)
@@ -106,7 +106,7 @@ This file serves as a top level handler for scanning operations.
 
   - Receives results from executing `NmapScanner.ScanHosts()`
 
-- **`Log_Nmap_Results`**:
+- **`Log_Nmap_Results()`**:
   - Passes scan results to the logger to be logged.
 
 ---
@@ -123,38 +123,53 @@ This file serves as a top level handler for scanning operations.
 
 ### **4. `m_Nmap_Result.py`**
 
+This file is used as a model for an Nmap result for an individual host.
+
 - **`store_serialize()`**:
 
-  - Used to output scan results of a specific host to a txt file (`'/logs/{*hostIP*}.txt'`)
+  - Used to output the scan results of a specific host to a txt file (`'/logs/{hostIP}.txt'`)
 
-- **`Log_ARP_Results`**:
+- **`addService()`**:
 
-  - Passes scan results to the logger to be logged.
+  - Not currently used but may be used in future updates.
 
-- **`Send_Nmap_Scan()`**:
+- **`addVulnerability()`**:
 
-  - Receives results from executing `NmapScanner.ScanHosts()`
+  - Not currently used but may be used in future updates.
 
-- **`Log_Nmap_Results`**:
-  - Passes scan results to the logger to be logged.
+- **`toDict()`**:
+
+  - Returns a tuple consisting of simplified scan data and raw Nmap scan data.
+
+- **`toJSON()`**:
+
+  - Returns a JSON dump consisting of simplified scan data and raw Nmap scan data.
+
+- **`getAttributes()`**:
+
+  - Used to set all simplified attributes by passing raw scan data to `extract_simple_data()`
+
+- **`__str__()`**:
 
 ---
 
 ### **5. `ARP_Scanner.py`**
 
-- **`scan()`**:
+Holds all of the functionality behind ARP scanning a network.
+
+- **`ScanNetwork()`**:
   - Executes an ARP scan to discover devices on the local network. Returns a list of devices as `m_Device` objects.
 
 ---
 
 ### **6. `NMAP_Scanner.py`**
 
-- **`scan()`**:
+- **`ScanHosts()`**:
 
-  - Executes an Nmap scan based on the provided arguments. Scans the devices identified by the ARP scan.
+  - Launches Nmap scan on all hosts loaded from `ActiveIPs.txt`.
 
-- **`get_scan_results()`**:
-  - Returns the scan results, which are formatted as `m_Nmap_Result` instances.
+- **`serialize_ScanHosts()`**:
+  - Not currently used but may be used in future updates.
 
 ---
 
@@ -166,7 +181,7 @@ This file serves as a top level handler for scanning operations.
 
 - **`format_n_services()`**:
 
-  - Formats services from raw Nmap data into a more digestible structure.
+  - Extracts and formats service information from Nmap scan results.
 
 - **`format_n_OSInfo()`**:
   - Extracts and formats operating system information from Nmap scan results.
@@ -175,26 +190,44 @@ This file serves as a top level handler for scanning operations.
 
 ### **8. `u_utils.py`**
 
-- **`write_to_file()`**:
+- **`return_config()`**:
 
-  - Writes formatted data to a file. Used by `logger.py` and other modules to output data.
-
-- **`format_data()`**:
-  - Formats data for consistent output (e.g., pretty-printing).
+  - Loads the `config.conf` file.
 
 ---
 
 ### **9. `write_to_file.py`**
 
-- **`write_json()`**:
+- **`write_list()`**:
 
-  - Converts data into JSON format and writes it to a specified file.
-
-- **`write_text()`**:
-  - Writes data as plain text for simpler outputs.
+  - Converts data into a list format and writes it to a specified file.
 
 ---
 
-This `README.md` provides a quick overview of the project and a detailed breakdown of each module, making it easy to understand how the different components work together. It can be pasted directly into your `README.md` file for reference alongside your UML diagram.
+### **10. `nvd_api_handler.py`**
 
-Let me know if you'd like to adjust anything!
+- **`get_api_key()`**:
+
+  - Attempts to load an NVD API Key from `'api/nvd_api/keys/nvd_key.conf'`.
+
+- **`query_cve()`**:
+
+  - Forms the NVD URL API and retrieves results from the database.
+
+---
+
+### **11. `generate_query_payload.py`**
+
+- **`generate_payload()`**:
+
+  - Crafts the URL payload based on the flag. The flag indicates the parameters needed to make the API request.
+
+---
+
+### **12. `process_nvd_response.py`**
+
+- **`process_response()`**:
+
+  - Extracts and simplifies the the query response returned by NVD.
+
+---

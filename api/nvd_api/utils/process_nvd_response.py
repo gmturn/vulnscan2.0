@@ -1,4 +1,4 @@
-def process_response(nvd_response, flag, hostIP='N/A'):
+def process_response(nvd_response, flag, hostIP=None):
     simple_result = {
         "cve_id": "",
         "published": "",

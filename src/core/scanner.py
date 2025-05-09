@@ -1,15 +1,16 @@
+
 import scapy.all as scapy
 import sys
 import os
 
-from logger import Logger
 
 sys.path.insert(0, os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', '..', 'src')))
 
-from utilities.u_utils import return_config  # noqa: E402
-from scanners.ARP_Scanner import ARPScanner  # noqa: E402
-from scanners.NMAP_Scanner import NmapScanner  # noqa: E402
+# from src.utilities.u_utils import return_config  # noqa: E402
+from src.scanners.ARP_Scanner import ARPScanner  # noqa: E402
+from src.scanners.NMAP_Scanner import NmapScanner  # noqa: E402
+from src.core.logger import Logger  # noqa: E402
 
 
 class Scanner:
@@ -44,11 +45,11 @@ class Scanner:
         self.Logger.LogNmapResults(self.NmapResults, d_Path="data/")
 
 
-config = return_config("config/config.conf")
-myScanner = Scanner(config)
+# config = return_config("config/config.conf")
+# myScanner = Scanner(config)
 
-myScanner.Send_ARP_Scan()
-myScanner.Log_ARP_Results()
+# myScanner.Send_ARP_Scan()
+# myScanner.Log_ARP_Results()
 
-myScanner.Send_Nmap_Scan()
-myScanner.Log_Nmap_Results()
+# myScanner.Send_Nmap_Scan()
+# myScanner.Log_Nmap_Results()

@@ -1,4 +1,4 @@
-def generate_query_payload(flag, value):
+def generate_payload(flag, value):
     if flag == 'cve_id':
         # ex. data = CVE-2020-1234)
         return f"cveId={str(value).upper()}"

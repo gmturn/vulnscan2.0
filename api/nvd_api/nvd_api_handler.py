@@ -6,8 +6,8 @@ import configparser
 sys.path.insert(0, os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', '..', 'api')))
 
-from nvd_api.utils.generate_query_payload import generate_query_payload  # noqa: E402
-from nvd_api.utils.process_nvd_response import process_response  # noqa: E402
+from api.nvd_api.utils.generate_query_payload import generate_payload  # noqa: E402
+from api.nvd_api.utils.process_nvd_response import process_response  # noqa: E402
 
 
 class NVDHandler:
@@ -36,8 +36,8 @@ class NVDHandler:
             print("Proceeding Without API Key")
             return None
 
-    def query_cve(self, flag, value, host_ip):
-        query_payload = generate_query_payload(flag, value)
+    def query_cve(self, flag, value, host_ip=None):
+        query_payload = generate_payload(flag, value)
 
         api_key = self.get_api_key()
 
@@ -53,21 +53,21 @@ class NVDHandler:
 
             # Process the response data and format it
             simplified_data = process_response(
-                response_data, flag, host_ip)
+                response_data, flag)
 
             return simplified_data
         else:
             print(
-                f"Error: Unable to query NVD API. Status code: {response.status_code}")
+                f"Error: Unable to query NVD API. Status code: {response.status_code}. Please ensure that you have entered a valid cve_id.")
             return {}
 
 
-if __name__ == "__main__":
-    nvd_handler = NVDHandler()
+# if __name__ == "__main__":
+#     nvd_handler = NVDHandler()
 
-    print("Testing CVE ID Query:")
-    cve_id_results = nvd_handler.query_cve(
-        'cve_id', 'cve-2012-1182', '192.168.1.66')
+#     print("Testing CVE ID Query:")
+#     cve_id_results = nvd_handler.query_cve(
+#         'cve_id', 'cve-2012-1182', '192.168.1.66')
 
-    print(cve_id_results)
-    print("-" * 50)
+#     print(cve_id_results)
+#     print("-" * 50)

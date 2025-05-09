@@ -1,30 +1,5 @@
 [
     {
-        "host_ip": "192.168.1.254",
-        "os_info": "Linux 4.15 - 5.19",
-        "open_ports": [
-            "Functionality Not Yet Added"
-        ],
-        "services": {
-            "tcpwrapped": {
-                "port": 53,
-                "product": "",
-                "version": ""
-            },
-            "http": {
-                "port": 443,
-                "product": "lighttpd",
-                "version": "1.4.69"
-            },
-            "rpcbind": {
-                "port": 111,
-                "product": "",
-                "version": ""
-            }
-        },
-        "vulnerabilities": []
-    },
-    {
         "host_ip": "192.168.1.66",
         "os_info": "Microsoft Windows 10 1607 - 11 23H2",
         "open_ports": [
@@ -109,26 +84,6 @@
             "Functionality Not Yet Added"
         ],
         "services": {},
-        "vulnerabilities": []
-    },
-    {
-        "host_ip": "192.168.1.81",
-        "os_info": "Linux 3.2 - 4.14",
-        "open_ports": [
-            "Functionality Not Yet Added"
-        ],
-        "services": {
-            "http": {
-                "port": 8080,
-                "product": "nginx",
-                "version": ""
-            },
-            "jetdirect": {
-                "port": 9100,
-                "product": "",
-                "version": ""
-            }
-        },
         "vulnerabilities": []
     }
 ]

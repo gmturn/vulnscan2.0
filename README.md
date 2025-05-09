@@ -5,7 +5,6 @@
 The **Network Vulnerability Scanner** is a tool suite designed to scan local networks for active devices and perform vulnerability assessments using **ARP** and **Nmap** scanning techniques. The tool integrates with the **NVD (National Vulnerability Database)** to identify known vulnerabilities based on CVEs (Common Vulnerabilities and Exposures), providing network administrators and security professionals with a comprehensive view of the security posture of machines on a network.
 
 This tool allows you to:
-
 - Perform **ARP scans** to discover devices on a local network.
 - Use **Nmap** to scan these devices for open ports, services, and vulnerabilities.
 - Query the **NVD API** for CVEs and other vulnerability-related data.
@@ -14,40 +13,37 @@ This tool allows you to:
 ## Installation
 
 ### Prerequisites
-
 1. **Python 3.7+**: Ensure you have Python 3.7 or higher installed on your system.
 2. **Required Libraries**: The following Python packages are required:
-   - `requests`
-   - `nmap`
-   - `json`
-   - `os`
-   - `argparse`
-
+    - `requests`
+    - `nmap`
+    - `json`
+    - `os`
+    - `argparse`
+    
 You can install the dependencies using `pip`:
 
-`pip install -r requirements.txt`
+```pip install -r requirements.txt```
 
 ### Setup Instructions
-
 1. Clone the repository to your local machine:
 
-`git clone https://github.com/yourusername/network-vulnerability-scanner.git`
+```git clone https://github.com/yourusername/network-vulnerability-scanner.git```
 
 2. Navigate to the project directory:
 
-`cd network-vulnerability-scanner`
+```cd network-vulnerability-scanner```
 
 3. Install any dependencies if you haven’t already:
 
-`pip install -r requirements.txt`
+```pip install -r requirements.txt```
 
 4. Configure the project by modifying `config.conf` with your preferred scan options.
 
 ### Running the Project
-
 Once everything is set up, you can run the main script to start scanning:
 
-`python main.py`
+```python main.py```
 
 You may need to modify the `config.conf` file to match your network configuration.
 
@@ -59,17 +55,15 @@ You may need to modify the `config.conf` file to match your network configuratio
 
 To start scanning, run the following command:
 
-`python main.py`
+```python main.py```
 
 The tool will:
-
 1. Perform an **ARP scan** to discover active devices on the network.
 2. Perform an **Nmap scan** on the active devices to identify open ports, services, and vulnerabilities.
 3. Query the **NVD API** for CVEs related to each identified service.
 4. Output the results in a JSON format, which can be saved to a file for later analysis.
 
 ### Configuring Scan Parameters
-
 - Modify the `config.conf` file to specify parameters such as:
   - IP range to scan (`IPRange`)
   - Scan type (`ScanType`): `basic`, `aggressive`, `stealth`, `os`
@@ -87,6 +81,7 @@ Here’s a list of key methods used in the project, including their purpose and 
 
 - **`log_scan_result()`**:
   - Logs scan results into a file for future analysis. Works with `scanner.py` to save Nmap and ARP scan results.
+  
 - **`log_error()`**:
   - Logs error messages into an error log. Works with `scanner.py` to log any scan-related errors.
 
@@ -104,6 +99,7 @@ Here’s a list of key methods used in the project, including their purpose and 
 
 - **`__init__()`**:
   - Initializes the device object with attributes such as `IP`, `MAC`, etc. Represents a network device discovered via ARP scanning.
+  
 - **`toDict()`**:
   - Converts the device object into a dictionary for easier serialization.
 
@@ -113,12 +109,14 @@ Here’s a list of key methods used in the project, including their purpose and 
 
 - **`__init__()`**:
   - Initializes the Nmap scan result object with raw scan data and simplified attributes like `hostIP`, `OSInfo`, `openPorts`, etc.
+  
 - **`addService()`**:
   - Adds services information to the result (e.g., port, service name, version).
+  
 - **`addVulnerability()`**:
   - Adds vulnerabilities information to the result (e.g., CVE ID, description).
+  
 - **`store_serialize()`**:
-
   - Serializes the scan result into a file for persistence.
 
 - **`toDict()`**:
@@ -136,7 +134,6 @@ Here’s a list of key methods used in the project, including their purpose and 
 ### **6. `NMAP_Scanner.py`**
 
 - **`scan()`**:
-
   - Executes an Nmap scan based on the provided arguments. Scans the devices identified by the ARP scan.
 
 - **`get_scan_results()`**:
@@ -147,11 +144,9 @@ Here’s a list of key methods used in the project, including their purpose and 
 ### **7. `u_Nmap_Result.py`**
 
 - **`extract_simple_data()`**:
-
   - Extracts and simplifies the Nmap scan results for easier analysis.
 
 - **`format_n_services()`**:
-
   - Formats services from raw Nmap data into a more digestible structure.
 
 - **`format_n_OSInfo()`**:
@@ -162,7 +157,6 @@ Here’s a list of key methods used in the project, including their purpose and 
 ### **8. `u_utils.py`**
 
 - **`write_to_file()`**:
-
   - Writes formatted data to a file. Used by `logger.py` and other modules to output data.
 
 - **`format_data()`**:
@@ -173,7 +167,6 @@ Here’s a list of key methods used in the project, including their purpose and 
 ### **9. `write_to_file.py`**
 
 - **`write_json()`**:
-
   - Converts data into JSON format and writes it to a specified file.
 
 - **`write_text()`**:

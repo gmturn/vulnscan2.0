@@ -113,27 +113,30 @@ This file serves as a top level handler for scanning operations.
 
 ### **3. `m_Device.py`**
 
-- **`__init__()`**:
-  - Initializes the device object with attributes such as `IP`, `MAC`, etc. Represents a network device discovered via ARP scanning.
-- **`toDict()`**:
-  - Converts the device object into a dictionary for easier serialization.
+- **`__init__()`**
+
+  - Initializes a NetworkDevice model instance
+
+- **`__str__()`**:
 
 ---
 
 ### **4. `m_Nmap_Result.py`**
 
-- **`__init__()`**:
-  - Initializes the Nmap scan result object with raw scan data and simplified attributes like `hostIP`, `OSInfo`, `openPorts`, etc.
-- **`addService()`**:
-  - Adds services information to the result (e.g., port, service name, version).
-- **`addVulnerability()`**:
-  - Adds vulnerabilities information to the result (e.g., CVE ID, description).
 - **`store_serialize()`**:
 
-  - Serializes the scan result into a file for persistence.
+  - Used to output scan results of a specific host to a txt file (`'/logs/{*hostIP*}.txt'`)
 
-- **`toDict()`**:
-  - Converts the Nmap result into a dictionary for easier manipulation or output.
+- **`Log_ARP_Results`**:
+
+  - Passes scan results to the logger to be logged.
+
+- **`Send_Nmap_Scan()`**:
+
+  - Receives results from executing `NmapScanner.ScanHosts()`
+
+- **`Log_Nmap_Results`**:
+  - Passes scan results to the logger to be logged.
 
 ---
 

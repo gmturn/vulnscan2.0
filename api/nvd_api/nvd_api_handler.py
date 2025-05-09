@@ -1,4 +1,4 @@
-
+import json
 import requests
 import sys
 import os
@@ -6,64 +6,76 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', '..', 'api')))
 
-from nvd_api.utils.process_nvd_response import process_nvd_response  # noqa: E402
 from nvd_api.utils.generate_query_payload import generate_query_payload  # noqa: E402
+from nvd_api.utils.process_nvd_response import process_response  # noqa: E402
 
 
-class NVD_API_Handler:
+class NVDHandler:
+    """
+    A class to handle all operations related to querying the NVD API for vulnerabilities.
+    """
+
     BASE_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 
-    def __init__(self, host_ip):
-        self.host_ip = host_ip
+    def __init__(self):
+        self.session = requests.Session()
 
-    def query_cve(self, flag, value):
-        """
-        Queries the NVD API and returns the formatted response.
+    def get_api_key(self):
+        try:
+            with open("api/keys/nvd_key.json", 'r') as file:
+                config = json.loads(file)
+                print("API Key Loaded Successfully")
+                return config['api_key']
 
-        Args:
-            flag (str): The type of query (e.g., 'cve_id', 'service_name').
-            value (str): The query value (e.g., CVE ID, service version).
+        except:
+            print("Proceeding Without API Key")
+            return
 
-        Returns:
-            dict: The formatted vulnerability data.
-        """
-        # Generate the query payload
+    def query_cve(self, flag, value, host_ip):
         query_payload = generate_query_payload(flag, value)
 
-        # Send the API request
-        url = f"{self.BASE_URL}?keyword={query_payload}"
-        try:
-            response = requests.get(url)
-            response.raise_for_status()  # Raise an error for invalid responses
+        api_key = self.get_api_key()
+
+        # Make the API request to the NVD
+        url = f"{self.BASE_URL}?{query_payload}"
+        response = self.session.get(url)
+
+        # Check if the response was successful
+        if response.status_code == 200:
             response_data = response.json()
 
-            # Process and format the NVD response data
-            formatted_data = process_nvd_response(
-                response_data, flag, self.host_ip)
-            return formatted_data
+            # Process the response data and format it
+            simplified_data = process_response(
+                response_data, flag, host_ip)
 
-        except requests.exceptions.RequestException as e:
-            print(f"Error querying NVD API: {e}")
-            return None
+            return simplified_data
+        else:
+            print(
+                f"Error: Unable to query NVD API. Status code: {response.status_code}")
+            return {}
+
+    def log_vulnerabilities(self, vulnerabilities, output_path="data/vulnerabilities_report.json"):
+        """
+        Logs the vulnerabilities data to a JSON file.
+
+        Args:
+            vulnerabilities (dict): The vulnerability data to log.
+            output_path (str): The path where the report will be saved.
+        """
+        try:
+            with open(output_path, 'w') as file:
+                json.dump(vulnerabilities, file, indent=4)
+            print(f"Vulnerability report saved to {output_path}")
+        except Exception as e:
+            print(f"Error: Unable to write to file {output_path}. {str(e)}")
 
 
 if __name__ == "__main__":
-    # Example host IP (you can replace this with the actual IP you're testing with)
-    host_ip = "192.168.1.66"
+    nvd_handler = NVDHandler()
 
-    # Initialize the NVD_API_Handler class with the host IP
-    nvd_handler = NVD_API_Handler(host_ip)
+    print("Testing CVE ID Query:")
+    cve_id_results = nvd_handler.query_cve(
+        'cve_id', 'CVE-2019-1010218', '192.168.1.66')
 
-    # Example query for CVE by service version (e.g., "OpenSSH 7.9")
-    flag = 'service_version'
-    value = 'OpenSSH 7.9'
-
-    # Query the NVD API
-    result = nvd_handler.query_cve(flag, value)
-
-    # Print the result
-    if result:
-        print("Formatted NVD Data:")
-        print(result)
-    else:
-        print("No vulnerabilities found or error occurred.")
+    print(cve_id_results)
+    print("-" * 50)

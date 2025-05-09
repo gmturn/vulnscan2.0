@@ -1,22 +1,12 @@
 def process_nvd_response(response_data, flag, host_ip):
-    """
-    Processes the NVD response data and formats it into a simplified structure.
 
-    Args:
-        response_data (dict): The response data from the NVD API.
-        flag (str): The type of query used (e.g., 'cve_id', 'service_name').
-        host_ip (str): The host IP for which the vulnerability is being queried.
-
-    Returns:
-        dict: Simplified vulnerability data.
-    """
     simplified_data = {
         'host_ip': host_ip,
         'cve_id': [],
         'vulnerabilities': []
     }
 
-    # Handle CVE-specific data extraction
+    # Process CVE-specific data
     if flag == 'cve_id':
         for item in response_data.get('CVE_Items', []):
             cve_id = item['cve']['CVE_data_meta']['ID']
@@ -29,7 +19,7 @@ def process_nvd_response(response_data, flag, host_ip):
                 'cvss_score': cvss_score
             })
 
-    # Handle service or version specific queries
+    # Process service or version-specific queries
     elif flag in ['service_name', 'service_version']:
         for item in response_data.get('CVE_Items', []):
             cve_id = item['cve']['CVE_data_meta']['ID']
@@ -42,6 +32,66 @@ def process_nvd_response(response_data, flag, host_ip):
                 'cvss_score': cvss_score
             })
 
-    # Additional logic for other flags can be added here
-
+    # Add additional data processing logic based on query type (e.g., cvss_score, cwe_id)
     return simplified_data
+
+
+def process_response(nvd_response, flag, hostIP='N/A'):
+    simple_result = {
+        "cve_id": "",
+        "published": "",
+        "description": "",
+        "metrics": {},
+        "url": ""
+
+    }
+
+    if flag == 'cve_id':
+        vulnerabilities = nvd_response.get("vulnerabilities", [])
+        if vulnerabilities:
+            d_cve = vulnerabilities[0].get("cve", {})
+
+            # Extract and update cve_id
+            cve_id = d_cve.get("id", 'N/A')
+            simple_result["cve_id"] = cve_id
+
+            # Extract and update published
+            published = d_cve.get("published", "N/A")
+            simple_result["published"] = published
+
+            # Extract and update description
+            l_description = d_cve.get("descriptions", [])
+            if l_description:
+                description = l_description[0].get("value", "N/A")
+                simple_result["description"] = description
+
+            # Extract and update metrics
+            d_metrics = d_cve.get("metrics", {})
+            if d_metrics:
+                key, value = next(iter(d_metrics.items()))
+
+                cvssMetricv31 = value[0]
+
+                if cvssMetricv31:
+                    attack_vector = cvssMetricv31.get(
+                        "cvssData").get("attackVector", "N/A")
+                    attack_complexity = cvssMetricv31.get(
+                        "cvssData").get("attackComplexity", "N/A")
+                    base_score = cvssMetricv31.get(
+                        "cvssData").get("baseScore", -1.0)
+                    base_severity = cvssMetricv31.get(
+                        "cvssData").get("baseSeverity", "N/A")
+                    metrics = {
+                        "attackVector": attack_vector,
+                        "attack_complexity": attack_complexity,
+                        "baseScore": base_score,
+                        "baseSeverity": base_severity
+                    }
+                    simple_result["metrics"] = metrics
+
+            # Extract and update url
+            l_references = d_cve.get("references", [])
+            if l_references:
+                url = l_references[0].get("url", "N/A")
+                simple_result["url"] = url
+    return simple_result

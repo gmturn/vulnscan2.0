@@ -17,27 +17,28 @@ class NmapResult:
         # Used to indicate whether the instance was loaded from a serialization or a real-time scan
         self.b_is_serialized = False
 
-    def store_serialize(self, f_path="serialize/nmap.txt"):
+    def store_serialize(self, d_path="serialize/"):
         data = self.toDict()  # Get data as a list of 2 dictionaries
-        with open(f_path, 'w') as file:
+        f_serialize = d_path + f"{self.hostIP}.txt"
+        with open(f_serialize, 'w') as file:
             file.write(json.dumps(data, indent=4))
 
-    def load_serialize(self, f_path="serialize/nmap.txt"):
-        try:
-            with open(f_path, 'r') as file:
-                data = file.read()
-                self.n_scan_result = json.loads(data)
-                self.b_is_serialized = True
-                self.getAttributes()  # Simplify the data for easy access
+    # def load_serialize(self, f_path="serialize/nmap.txt"):
+    #     try:
+    #         with open(f_path, 'r') as file:
+    #             data = file.read()
+    #             self.n_scan_result = json.loads(data)
+    #             self.b_is_serialized = True
+    #             self.getAttributes()  # Simplify the data for easy access
 
-                return self.n_scan_result
+    #             return self.n_scan_result
 
-        except FileNotFoundError:
-            print(f"Error: The file at {f_path} was not found.")
-            return {}
-        except json.JSONDecodeError:
-            print("Error: Failed to decode the JSON data.")
-            return {}
+    #     except FileNotFoundError:
+    #         print(f"Error: The file at {f_path} was not found.")
+    #         return {}
+    #     except json.JSONDecodeError:
+    #         print("Error: Failed to decode the JSON data.")
+    #         return {}
 
     # Might not be needed
     def addService(self, service_data):

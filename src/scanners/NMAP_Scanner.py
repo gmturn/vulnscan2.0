@@ -20,7 +20,8 @@ class NmapScanner:
         self.Arguments = self.config['Arguments']
         self.SaveToFile = self.config['SaveToFile']
         self.ScanLimit = self.config['ScanLimit']
-        self.MaxScans = self.config['MaxScans']
+        self.MaxScans = int(
+            self.config['MaxScans']) if self.config['MaxScans'] else None
         self.Traceroute = self.config['Traceroute']
         self.Verbose = self.config['Verbose']
 
@@ -77,11 +78,12 @@ class NmapScanner:
             arguments += " --traceroute"
 
         # [2.0] SCAN TARGETS
-        if self.ScanLimit:
+        if self.MaxScans:
             self.Scanner.scan(hosts=self.format_hosts(
                 self.hosts[:self.MaxScans]), arguments=arguments)
         else:
-            self.Scanner.scan(hosts=self.hosts, arguments=arguments)
+            self.Scanner.scan(hosts=self.format_hosts(
+                self.hosts), arguments=arguments)
 
         # [3.0] RETURN NMAP SCAN RESULTS (list of m_Nmap_Result instances)
         results = []
@@ -91,7 +93,7 @@ class NmapScanner:
 
             # call NmapResult methods
             nmap_result.getAttributes()
-            nmap_result.store_serialize(f_path="serialize/nmap.txt")
+            nmap_result.store_serialize(d_path="serialize/")
 
             results.append(nmap_result)
 
@@ -101,7 +103,7 @@ class NmapScanner:
         print(f"Nmap Scan Completed in {duration:.2f} seconds.")
         return results
 
-    def serialize_ScanHosts(self, f_path="serialize/nmap.txt"):
+    def serialize_ScanHosts(self, d_path="serialize/"):
         nmapresult = NmapResult()
         result_dict = nmapresult.load_serialize()
         return result_dict

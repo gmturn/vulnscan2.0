@@ -25,7 +25,7 @@ def return_config(config_path):
             'SaveToFile': str_to_bool(config.get(d, 'SaveToFile')),
             'Traceroute': str_to_bool(config.get(d, 'Traceroute')),
             'ScanLimit': str_to_bool(config.get(d, 'ScanLimit')),
-            'MaxScans': int(config.get(d, 'MaxScans')),
+            'MaxScans': config.get(d, 'MaxScans'),
             'd_Data': config.get(d, 'd_Data'),
             'ActiveIPs': config.get(d, 'ActiveIPs'),
             'InactiveIPs': config.get(d, 'InactiveIPs'),

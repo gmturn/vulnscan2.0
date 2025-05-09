@@ -1,0 +1,418 @@
+[
+    {
+        "host_ip": "192.168.1.66",
+        "os_info": "Microsoft Windows 10 1607 - 11 23H2",
+        "open_ports": [
+            "Functionality Not Yet Added"
+        ],
+        "services": {
+            "ftp": {
+                "port": 21,
+                "product": "Microsoft ftpd",
+                "version": ""
+            },
+            "ssh": {
+                "port": 22,
+                "product": "OpenSSH",
+                "version": "for_Windows_9.5"
+            },
+            "domain": {
+                "port": 53,
+                "product": "",
+                "version": ""
+            },
+            "msrpc": {
+                "port": 135,
+                "product": "Microsoft Windows RPC",
+                "version": ""
+            },
+            "netbios-ssn": {
+                "port": 139,
+                "product": "Microsoft Windows netbios-ssn",
+                "version": ""
+            },
+            "microsoft-ds": {
+                "port": 445,
+                "product": "",
+                "version": ""
+            },
+            "http": {
+                "port": 2869,
+                "product": "Microsoft HTTPAPI httpd",
+                "version": "2.0"
+            },
+            "mysql": {
+                "port": 3306,
+                "product": "MySQL",
+                "version": ""
+            }
+        },
+        "vulnerabilities": [
+            {
+                "id": "smb-vuln-ms10-054",
+                "output": "false"
+            },
+            {
+                "id": "samba-vuln-cve-2012-1182",
+                "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
+            },
+            {
+                "id": "smb-vuln-ms10-061",
+                "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
+            }
+        ]
+    },
+    {
+        "n_scan_result": {
+            "hostnames": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ],
+            "addresses": {
+                "ipv4": "192.168.1.66"
+            },
+            "vendor": {},
+            "status": {
+                "state": "up",
+                "reason": "localhost-response"
+            },
+            "uptime": {
+                "seconds": "201727",
+                "lastboot": "Tue May  6 13:34:17 2025"
+            },
+            "tcp": {
+                "21": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "ftp",
+                    "product": "Microsoft ftpd",
+                    "version": "",
+                    "extrainfo": "",
+                    "conf": "10",
+                    "cpe": "cpe:/o:microsoft:windows"
+                },
+                "22": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "ssh",
+                    "product": "OpenSSH",
+                    "version": "for_Windows_9.5",
+                    "extrainfo": "protocol 2.0",
+                    "conf": "10",
+                    "cpe": "cpe:/a:openbsd:openssh:for_windows_9.5"
+                },
+                "53": {
+                    "state": "filtered",
+                    "reason": "no-response",
+                    "name": "domain",
+                    "product": "",
+                    "version": "",
+                    "extrainfo": "",
+                    "conf": "3",
+                    "cpe": ""
+                },
+                "135": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "msrpc",
+                    "product": "Microsoft Windows RPC",
+                    "version": "",
+                    "extrainfo": "",
+                    "conf": "10",
+                    "cpe": "cpe:/o:microsoft:windows"
+                },
+                "139": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "netbios-ssn",
+                    "product": "Microsoft Windows netbios-ssn",
+                    "version": "",
+                    "extrainfo": "",
+                    "conf": "10",
+                    "cpe": "cpe:/o:microsoft:windows"
+                },
+                "445": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "microsoft-ds",
+                    "product": "",
+                    "version": "",
+                    "extrainfo": "",
+                    "conf": "3",
+                    "cpe": ""
+                },
+                "2869": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "http",
+                    "product": "Microsoft HTTPAPI httpd",
+                    "version": "2.0",
+                    "extrainfo": "SSDP/UPnP",
+                    "conf": "10",
+                    "cpe": "cpe:/o:microsoft:windows",
+                    "script": {
+                        "http-aspnet-debug": "ERROR: Script execution failed (use -d to debug)",
+                        "http-csrf": "Couldn't find any CSRF vulnerabilities.",
+                        "http-dombased-xss": "Couldn't find any DOM based XSS.",
+                        "http-stored-xss": "Couldn't find any stored XSS vulnerabilities."
+                    }
+                },
+                "3306": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "mysql",
+                    "product": "MySQL",
+                    "version": "",
+                    "extrainfo": "unauthorized",
+                    "conf": "10",
+                    "cpe": "cpe:/a:mysql:mysql"
+                }
+            },
+            "hostscript": [
+                {
+                    "id": "smb-vuln-ms10-054",
+                    "output": "false"
+                },
+                {
+                    "id": "samba-vuln-cve-2012-1182",
+                    "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
+                },
+                {
+                    "id": "smb-vuln-ms10-061",
+                    "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
+                }
+            ],
+            "portused": [
+                {
+                    "state": "open",
+                    "proto": "tcp",
+                    "portid": "21"
+                },
+                {
+                    "state": "closed",
+                    "proto": "tcp",
+                    "portid": "1"
+                },
+                {
+                    "state": "closed",
+                    "proto": "udp",
+                    "portid": "30611"
+                }
+            ],
+            "osmatch": [
+                {
+                    "name": "Microsoft Windows 10 1607 - 11 23H2",
+                    "accuracy": "99",
+                    "line": "74791",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "99",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_10"
+                            ]
+                        },
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "11",
+                            "accuracy": "99",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_11"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 10 1511",
+                    "accuracy": "97",
+                    "line": "74530",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "97",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_10"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Windows 11 21H2",
+                    "accuracy": "97",
+                    "line": "75587",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "11",
+                            "accuracy": "97",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_11"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 10 1703",
+                    "accuracy": "96",
+                    "line": "74847",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "96",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_10"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Windows Server 2022",
+                    "accuracy": "96",
+                    "line": "82130",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "2022",
+                            "accuracy": "96",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_server_2022"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 10 1703 or Windows 11 21H2",
+                    "accuracy": "96",
+                    "line": "74943",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "96",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_10"
+                            ]
+                        },
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "11",
+                            "accuracy": "96",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_11"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 10 1703 - 11 21H2",
+                    "accuracy": "95",
+                    "line": "74920",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "95",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_10"
+                            ]
+                        },
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "11",
+                            "accuracy": "95",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_11"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 11 21H2",
+                    "accuracy": "95",
+                    "line": "75569",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "11",
+                            "accuracy": "95",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_11"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 7 or 8.1 R1",
+                    "accuracy": "94",
+                    "line": "82755",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "7",
+                            "accuracy": "94",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_7"
+                            ]
+                        },
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "8.1",
+                            "accuracy": "94",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_8.1:r1"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 10 1607",
+                    "accuracy": "94",
+                    "line": "74626",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "94",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_10"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

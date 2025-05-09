@@ -103,7 +103,7 @@
         "vulnerabilities": []
     },
     {
-        "host_ip": "192.168.1.78",
+        "host_ip": "192.168.1.79",
         "os_info": null,
         "open_ports": [
             "Functionality Not Yet Added"
@@ -112,12 +112,23 @@
         "vulnerabilities": []
     },
     {
-        "host_ip": "192.168.1.79",
-        "os_info": null,
+        "host_ip": "192.168.1.81",
+        "os_info": "Linux 3.2 - 4.14",
         "open_ports": [
             "Functionality Not Yet Added"
         ],
-        "services": {},
+        "services": {
+            "http": {
+                "port": 8080,
+                "product": "nginx",
+                "version": ""
+            },
+            "jetdirect": {
+                "port": 9100,
+                "product": "",
+                "version": ""
+            }
+        },
         "vulnerabilities": []
     }
 ]

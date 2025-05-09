@@ -1,5 +1,4 @@
 import scapy.all as scapy
-import os
 from models.m_Device import NetworkDevice
 
 # This class is used to send and receive ARP packets and return the results to the main scanner

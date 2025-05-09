@@ -29,21 +29,21 @@ This tool allows you to:
 
 **`config.conf` Settings and Options**
 
-- `IPRange`: Specify the range of IPs that you want to scan
-- `HostIP`: Specify the IP address of the host machine
-- `HostMAC`: Specify the MAC address of the host machine
-- `Timeout`: Set the timeout value for scaning operations
-- `Verbose`: Set whether the scan results are verbose
-- `ScanType`: _Options:_ `basic`, `stealth`, `aggressive`, `os`. These options correspond to the Nmap arguments `-sV`, `-sS`, `-A`, `-O`, respectively. This option is the base of the Nmap scan arguments.
-- `Arguments`: List any additional desired Nmap arguments. _ex. `-O  --version-intensity 8`_
-- `SaveToFile`: If `true`, raw Nmap scan results will be outputted to `vulnscan2.   0/data/NmapScanResults.txt`
-- `Traceroute`: Specify traceroute boolean (only affects the `NmapScanResults.   txt` file if `**SaveToFile**` is enabled)
-- `ScanLimit`: Toggle a limit of Nmap scans sent
-- `MaxScans`: Specify the maximum hosts to be Nmap scanned
-- `d_Data`: Specify the directory for output files (will have greater functionality in further updates)
-- `ActiveIPs`: Specify the file name that stores active hosts to be Nmap scanned (will have greater functionality in further updates)
-- `InActiveIPs`: Specify the file name that stores hosts that are non-responsive to ARP requests
-- `NmapScanResults`: Specify file name to store comprehensive Nmap scan results
+- **`IPRange`:** Specify the range of IPs that you want to scan
+- **`HostIP`:** Specify the IP address of the host machine
+- **`HostMAC`:** Specify the MAC address of the host machine
+- **`Timeout`:** Set the timeout value for scaning operations
+- **`Verbose`:** Set whether the scan results are verbose
+- **`ScanType`:** _Options:_ `basic`, `stealth`, `aggressive`, `os`. These options correspond to the Nmap arguments `-sV`, `-sS`, `-A`, `-O`, respectively. This option is the base of the Nmap scan arguments.
+- **`Arguments`:** List any additional desired Nmap arguments. _ex. `-O  --version-intensity 8`_
+- **`SaveToFile`:** If `true`, raw Nmap scan results will be outputted to `/data/NmapScanResults.txt`
+- **`Traceroute`:** Specify traceroute boolean (only affects the `NmapScanResults txt file` file if `**SaveToFile**` is enabled)
+- **`ScanLimit`:** Toggle a limit of Nmap scans sent
+- **`MaxScans`:** Specify the maximum hosts to be Nmap scanned
+- **`d_Data`:** Specify the directory for output files (will have greater functionality in further updates)
+- **`ActiveIPs`:** Specify the file name that stores active hosts to be Nmap scanned (will have greater functionality in further updates)
+- **`InActiveIPs`:** Specify the file name that stores hosts that are non-responsive to ARP requests
+- **`NmapScanResults`:** Specify file name to store comprehensive Nmap scan results
 
 **Note:** it is recommended to leave all directory and file location settings unchanged.
 

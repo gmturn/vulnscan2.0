@@ -78,9 +78,14 @@ The following section outlines each class and methods used, as well as how they 
 
 ### **1. `logger.py`**
 
+This file is responsible for logging all scan results.
+
 - **`LogARPResults()`**:
-  - This method is passed tuple of results comprised of Active and Inactive IPs. The method then logs each IP into their respective log files.
+
+  - This method is passed tuple of results comprised of Active and Inactive IPs The method then logs each IP into their respective log files.
+
 - **`LogNmapResults()`**:
+
   - This method is passed Nmap scan results and defers to m_Nmap_Result.py for formatting.
 
 ---

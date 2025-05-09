@@ -1,43 +1,30 @@
-# Network Vulnerability Scanner 2.0
-New and Improved
+# Network Vulnerability Scanner
 
 ## Overview
 
-This Nmap Scanner Program is a Python-based tool that interfaces with Nmap, a powerful network scanning and host discovery tool. It is designed to facilitate network administrators and cybersecurity professionals in performing network scans, analyzing network security, and cataloging network resources.
+The **Network Vulnerability Scanner** is a tool suite designed to scan local networks for active devices and perform vulnerability assessments using **ARP** and **Nmap** scanning techniques. The tool integrates with the **NVD (National Vulnerability Database)** to identify known vulnerabilities based on CVEs (Common Vulnerabilities and Exposures), providing network administrators and security professionals with a comprehensive view of the security posture of machines on a network.
 
-## Features
+This tool allows you to:
 
-- **Scanning**: Perform various types of network scans including basic, stealth, aggressive, and OS detection.
-- **Host File Processing**: Ability to read hosts from a file for batch scanning.
-- **Data Retrieval**: Fetch specific data like open ports, port states, hostnames, and service/product information.
-- **JSON Output**: Scan results are formatted in JSON for easy parsing and integration with other tools.
-- **Flexibility**: Customize scans with specific hosts or host files, and select different types of scans based on requirements.
+- Perform **ARP scans** to discover devices on a local network.
+- Use **Nmap** to scan these devices for open ports, services, operating system information, and vulnerabilities.
+- Query the **NVD** for CVEs and other vulnerability-related data.
+- Output the results into readable formats like JSON for further analysis and reporting.
 
 ## Installation
 
-Ensure you have Python installed on your system. This program requires the `python-nmap` library.
+### Prerequisites
 
-1. Install Nmap: [Download and install Nmap](https://nmap.org/download.html) if it's not already installed on your system.
-2. Clone this repository: `git clone <repository-url>`.
-3. Install dependencies: Run `pip install -r requirements.txt` to install the required Python libraries.
+1. **Python 3.7+**: Ensure you have Python 3.7 or higher installed on your system.
+2. **Required Libraries**: The following Python packages are required:
+   - `requests`
+   - `nmap`
+   - `json`
+   - `os`
+   - `argparse`
 
-## Usage
+You can install the dependencies using `pip`:
 
-### Basic Usage
-
-To perform a scan, instantiate the `NmapScanner` class and call the `scan` method:
-
-```python
-from nmap_integration import NmapScanner
-
-scanner = NmapScanner()
-scanner.scan(hosts='192.168.1.0/24', scan_type='basic')
-```
-
-### Reading Hosts from a File
-
-To scan a list of hosts from a file:
-
-```
-scanner.scan(host_file='path/to/hostfile.txt', scan_type='stealth')
+```bash
+pip install -r requirements.txt
 ```

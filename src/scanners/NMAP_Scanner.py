@@ -93,7 +93,7 @@ class NmapScanner:
 
             # call NmapResult methods
             nmap_result.getAttributes()
-            nmap_result.store_serialize(d_path="serialize/")
+            nmap_result.store_serialize(d_path="logs/")
 
             results.append(nmap_result)
 
@@ -103,7 +103,7 @@ class NmapScanner:
         print(f"Nmap Scan Completed in {duration:.2f} seconds.")
         return results
 
-    def serialize_ScanHosts(self, d_path="serialize/"):
+    def serialize_ScanHosts(self, d_path="logs/"):
         nmapresult = NmapResult()
         result_dict = nmapresult.load_serialize()
         return result_dict

@@ -15,14 +15,17 @@ def format_n_services(n_scan_result):
 
         # iterate through dictionary; for key, value in tcp.items()
         for port, port_data in tcp.items():
-            service_name = port_data.get('name', 'N/A')
+            service_protocol = port_data.get('name', 'N/A')
+            service_product = port_data.get('product', 'N/A')
             service_version = port_data.get('version', 'N/A')
 
             # Add the formatted entry
-            services[service_name] = {
+            services[service_protocol] = {
                 'port': port,
+                'product': service_product,
                 'version': service_version
             }
+
         return services
 
     else:

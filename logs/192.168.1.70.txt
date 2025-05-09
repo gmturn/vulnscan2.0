@@ -1,0 +1,149 @@
+[
+    {
+        "host_ip": "192.168.1.70",
+        "os_info": "Microsoft Windows 11 21H2",
+        "open_ports": [
+            "Functionality Not Yet Added"
+        ],
+        "services": {
+            "upnp": {
+                "port": 2869,
+                "product": "Microsoft IIS httpd",
+                "version": ""
+            }
+        },
+        "vulnerabilities": []
+    },
+    {
+        "n_scan_result": {
+            "hostnames": [
+                {
+                    "name": "",
+                    "type": ""
+                }
+            ],
+            "addresses": {
+                "ipv4": "192.168.1.70",
+                "mac": "E8:A7:2F:16:E6:D1"
+            },
+            "vendor": {
+                "E8:A7:2F:16:E6:D1": "Microsoft"
+            },
+            "status": {
+                "state": "up",
+                "reason": "arp-response"
+            },
+            "uptime": {
+                "seconds": "43220",
+                "lastboot": "Thu May  8 09:49:07 2025"
+            },
+            "tcp": {
+                "2869": {
+                    "state": "open",
+                    "reason": "syn-ack",
+                    "name": "upnp",
+                    "product": "Microsoft IIS httpd",
+                    "version": "",
+                    "extrainfo": "",
+                    "conf": "10",
+                    "cpe": "cpe:/a:microsoft:internet_information_services"
+                }
+            },
+            "portused": [
+                {
+                    "state": "open",
+                    "proto": "tcp",
+                    "portid": "2869"
+                }
+            ],
+            "osmatch": [
+                {
+                    "name": "Microsoft Windows 11 21H2",
+                    "accuracy": "91",
+                    "line": "75497",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "11",
+                            "accuracy": "91",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_11"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "FreeBSD 6.2-RELEASE",
+                    "accuracy": "88",
+                    "line": "29729",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "FreeBSD",
+                            "osfamily": "FreeBSD",
+                            "osgen": "6.X",
+                            "accuracy": "88",
+                            "cpe": [
+                                "cpe:/o:freebsd:freebsd:6.2"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 10",
+                    "accuracy": "86",
+                    "line": "74394",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "86",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_10"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows Server 2008 or 2008 Beta 3",
+                    "accuracy": "85",
+                    "line": "80082",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "2008",
+                            "accuracy": "85",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_server_2008::beta3",
+                                "cpe:/o:microsoft:windows_server_2008"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Microsoft Windows 10 1607",
+                    "accuracy": "85",
+                    "line": "74770",
+                    "osclass": [
+                        {
+                            "type": "general purpose",
+                            "vendor": "Microsoft",
+                            "osfamily": "Windows",
+                            "osgen": "10",
+                            "accuracy": "85",
+                            "cpe": [
+                                "cpe:/o:microsoft:windows_10"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

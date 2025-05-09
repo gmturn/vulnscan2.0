@@ -17,13 +17,13 @@ class NmapResult:
         # Used to indicate whether the instance was loaded from a serialization or a real-time scan
         self.b_is_serialized = False
 
-    def store_serialize(self, d_path="serialize/"):
+    def store_serialize(self, d_path="logs/"):
         data = self.toDict()  # Get data as a list of 2 dictionaries
         f_serialize = d_path + f"{self.hostIP}.txt"
         with open(f_serialize, 'w') as file:
             file.write(json.dumps(data, indent=4))
 
-    # def load_serialize(self, f_path="serialize/nmap.txt"):
+    # def load_serialize(self, f_path="logs/nmap.txt"):
     #     try:
     #         with open(f_path, 'r') as file:
     #             data = file.read()

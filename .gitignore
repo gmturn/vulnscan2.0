@@ -11,3 +11,5 @@ data/**
 logs/**
 api/nvd_api/utils/__pycache__/**
 api/nvd_api/__pycache__/**
+api/nvd_api/keys/**
+tests/**

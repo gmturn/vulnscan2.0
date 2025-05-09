@@ -6,7 +6,6 @@ import time
 sys.path.insert(0, os.path.abspath(os.path.join(
     os.path.dirname(__file__), '..', '..', 'src')))
 
-# from utilities.u_utils import return_config  # noqa: E402
 from models.m_Nmap_Result import NmapResult  # noqa: E402
 
 

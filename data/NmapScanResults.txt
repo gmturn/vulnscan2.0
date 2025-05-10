@@ -1,4 +1,4 @@
-# Nmap 7.95 scan initiated Fri May  9 03:01:01 2025 as: nmap -oX - -sV -O -oN data/NmapScanResults.txt --script vuln --traceroute 192.168.1.66 192.168.1.70 192.168.1.79
+# Nmap 7.95 scan initiated Sat May 10 13:58:46 2025 as: nmap -oX - -sV -O -oN data/NmapScanResults.txt --script vuln --traceroute 192.168.1.66 192.168.1.82
 Pre-scan script results:
 | broadcast-avahi-dos: 
 |   Discovered hosts:
@@ -6,7 +6,7 @@ Pre-scan script results:
 |   After NULL UDP avahi packet DoS (CVE-2011-1002).
 |_  Hosts are all up (not vulnerable).
 Nmap scan report for 192.168.1.66
-Host is up (0.00040s latency).
+Host is up (0.00086s latency).
 Not shown: 992 closed tcp ports (reset)
 PORT     STATE    SERVICE       VERSION
 21/tcp   open     ftp           Microsoft ftpd
@@ -16,65 +16,51 @@ PORT     STATE    SERVICE       VERSION
 139/tcp  open     netbios-ssn   Microsoft Windows netbios-ssn
 445/tcp  open     microsoft-ds?
 2869/tcp open     http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
-|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-aspnet-debug: ERROR: Script execution failed (use -d to debug)
 |_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
 |_http-csrf: Couldn't find any CSRF vulnerabilities.
-|_http-aspnet-debug: ERROR: Script execution failed (use -d to debug)
+|_http-dombased-xss: Couldn't find any DOM based XSS.
 3306/tcp open     mysql         MySQL (unauthorized)
 No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
 TCP/IP fingerprint:
-OS:SCAN(V=7.95%E=4%D=5/9%OT=21%CT=1%CU=41995%PV=Y%DS=0%DC=L%G=Y%TM=681DB685
-OS:%P=i686-pc-windows-windows)SEQ(SP=100%GCD=1%ISR=107%TI=I%CI=I%II=I%SS=S%
-OS:TS=A)SEQ(SP=101%GCD=1%ISR=107%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=104%GCD=1%
-OS:ISR=108%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=105%GCD=1%ISR=106%TI=I%CI=I%II=I
-OS:%SS=S%TS=A)SEQ(SP=106%GCD=1%ISR=10D%TI=I%CI=I%II=I%SS=S%TS=A)OPS(O1=MFFD
-OS:7NW8ST11%O2=MFFD7NW8ST11%O3=MFFD7NW8NNT11%O4=MFFD7NW8ST11%O5=MFFD7NW8ST1
-OS:1%O6=MFFD7ST11)WIN(W1=FFFF%W2=FFFF%W3=FFFF%W4=FFFF%W5=FFFF%W6=FFFF)ECN(R
-OS:=Y%DF=Y%T=80%W=FFFF%O=MFFD7NW8NNS%CC=N%Q=)T1(R=Y%DF=Y%T=80%S=O%A=S+%F=AS
-OS:%RD=0%Q=)T2(R=Y%DF=Y%T=80%W=0%S=Z%A=S%F=AR%O=%RD=0%Q=)T3(R=Y%DF=Y%T=80%W
-OS:=0%S=Z%A=O%F=AR%O=%RD=0%Q=)T4(R=Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T
-OS:5(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=80%W=0%S=A%A=
-OS:O%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF
-OS:=N%T=80%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=Z%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=80
-OS:%CD=Z)
+OS:SCAN(V=7.95%E=4%D=5/10%OT=21%CT=1%CU=44215%PV=Y%DS=0%DC=L%G=Y%TM=681FA22
+OS:F%P=i686-pc-windows-windows)SEQ(SP=102%GCD=1%ISR=106%TI=I%CI=I%II=I%SS=S
+OS:%TS=A)SEQ(SP=105%GCD=1%ISR=108%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=106%GCD=1
+OS:%ISR=10C%TI=I%CI=I%II=I%SS=S%TS=A)SEQ(SP=107%GCD=1%ISR=104%TI=I%CI=I%II=
+OS:I%SS=S%TS=A)SEQ(SP=108%GCD=1%ISR=10A%TI=I%CI=I%II=I%SS=S%TS=A)OPS(O1=MFF
+OS:D7NW8ST11%O2=MFFD7NW8ST11%O3=MFFD7NW8NNT11%O4=MFFD7NW8ST11%O5=MFFD7NW8ST
+OS:11%O6=MFFD7ST11)WIN(W1=FFFF%W2=FFFF%W3=FFFF%W4=FFFF%W5=FFFF%W6=FFFF)ECN(
+OS:R=Y%DF=Y%T=80%W=FFFF%O=MFFD7NW8NNS%CC=N%Q=)T1(R=Y%DF=Y%T=80%S=O%A=S+%F=A
+OS:S%RD=0%Q=)T2(R=Y%DF=Y%T=80%W=0%S=Z%A=S%F=AR%O=%RD=0%Q=)T3(R=Y%DF=Y%T=80%
+OS:W=0%S=Z%A=O%F=AR%O=%RD=0%Q=)T4(R=Y%DF=Y%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)
+OS:T5(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=80%W=0%S=A%A
+OS:=O%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%D
+OS:F=N%T=80%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=Z%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=8
+OS:0%CD=Z)
 
 Network Distance: 0 hops
 Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 
 Host script results:
 |_smb-vuln-ms10-054: false
-|_samba-vuln-cve-2012-1182: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
 |_smb-vuln-ms10-061: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
+|_samba-vuln-cve-2012-1182: Could not negotiate a connection:SMB: Failed to receive bytes: ERROR
 
-Nmap scan report for 192.168.1.70
-Host is up (0.0053s latency).
-Not shown: 999 filtered tcp ports (no-response)
-PORT     STATE SERVICE VERSION
-2869/tcp open  upnp    Microsoft IIS httpd
-MAC Address: E8:A7:2F:16:E6:D1 (Microsoft)
+Nmap scan report for 192.168.1.82
+Host is up (0.039s latency).
+All 1000 scanned ports on 192.168.1.82 are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+MAC Address: 80:60:B7:81:EF:F7 (Cloud Network Technology Singapore PTE.)
 Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
-Device type: general purpose
-Running (JUST GUESSING): Microsoft Windows 11 (91%), FreeBSD 6.X (86%)
-OS CPE: cpe:/o:microsoft:windows_11 cpe:/o:freebsd:freebsd:6.2
-Aggressive OS guesses: Microsoft Windows 11 21H2 (91%), FreeBSD 6.2-RELEASE (86%)
-No exact OS matches for host (test conditions non-ideal).
-Network Distance: 1 hop
-
-TRACEROUTE
-HOP RTT     ADDRESS
-1   5.30 ms 192.168.1.70
-
-Nmap scan report for 192.168.1.79
-Host is up (0.042s latency).
-All 1000 scanned ports on 192.168.1.79 are in ignored states.
-Not shown: 1000 filtered tcp ports (no-response)
-MAC Address: D4:D8:53:2F:72:AB (Intel Corporate)
-Too many fingerprints match this host to give specific OS details
+Device type: general purpose|game console
+Running: FreeBSD 11.X|12.X, Sony embedded
+OS CPE: cpe:/o:freebsd:freebsd:11 cpe:/o:freebsd:freebsd:12 cpe:/o:freebsd:freebsd:11.0
+OS details: FreeBSD 11.0-RELEASE - 12.0-CURRENT, FreeBSD 11.0-STABLE, FreeBSD 11.1-RELEASE, FreeBSD 11.1-RELEASE or 11.2-STABLE, FreeBSD 11.1-STABLE, FreeBSD 11.2-RELEASE - 11.3 RELEASE, FreeBSD 11.3-RELEASE, Sony PS5 (FreeBSD 11.0)
 Network Distance: 1 hop
 
 TRACEROUTE
 HOP RTT      ADDRESS
-1   42.00 ms 192.168.1.79
+1   38.66 ms 192.168.1.82
 
 OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Fri May  9 03:02:53 2025 -- 3 IP addresses (3 hosts up) scanned in 112.66 seconds
+# Nmap done at Sat May 10 14:00:11 2025 -- 2 IP addresses (2 hosts up) scanned in 85.02 seconds

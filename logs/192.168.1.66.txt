@@ -53,11 +53,11 @@
                 "output": "false"
             },
             {
-                "id": "samba-vuln-cve-2012-1182",
+                "id": "smb-vuln-ms10-061",
                 "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
             },
             {
-                "id": "smb-vuln-ms10-061",
+                "id": "samba-vuln-cve-2012-1182",
                 "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
             }
         ]
@@ -79,8 +79,8 @@
                 "reason": "localhost-response"
             },
             "uptime": {
-                "seconds": "221276",
-                "lastboot": "Tue May  6 13:34:17 2025"
+                "seconds": "347143",
+                "lastboot": "Tue May  6 13:34:16 2025"
             },
             "tcp": {
                 "21": {
@@ -153,10 +153,10 @@
                     "conf": "10",
                     "cpe": "cpe:/o:microsoft:windows",
                     "script": {
-                        "http-dombased-xss": "Couldn't find any DOM based XSS.",
+                        "http-aspnet-debug": "ERROR: Script execution failed (use -d to debug)",
                         "http-stored-xss": "Couldn't find any stored XSS vulnerabilities.",
                         "http-csrf": "Couldn't find any CSRF vulnerabilities.",
-                        "http-aspnet-debug": "ERROR: Script execution failed (use -d to debug)"
+                        "http-dombased-xss": "Couldn't find any DOM based XSS."
                     }
                 },
                 "3306": {
@@ -176,11 +176,11 @@
                     "output": "false"
                 },
                 {
-                    "id": "samba-vuln-cve-2012-1182",
+                    "id": "smb-vuln-ms10-061",
                     "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
                 },
                 {
-                    "id": "smb-vuln-ms10-061",
+                    "id": "samba-vuln-cve-2012-1182",
                     "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
                 }
             ],
@@ -198,7 +198,7 @@
                 {
                     "state": "closed",
                     "proto": "udp",
-                    "portid": "41995"
+                    "portid": "44215"
                 }
             ],
             "osmatch": [
@@ -396,16 +396,16 @@
                     ]
                 },
                 {
-                    "name": "Microsoft Windows 10 1809 - 21H2",
-                    "accuracy": "93",
-                    "line": "75084",
+                    "name": "Microsoft Windows 10 1607",
+                    "accuracy": "94",
+                    "line": "74626",
                     "osclass": [
                         {
                             "type": "general purpose",
                             "vendor": "Microsoft",
                             "osfamily": "Windows",
                             "osgen": "10",
-                            "accuracy": "93",
+                            "accuracy": "94",
                             "cpe": [
                                 "cpe:/o:microsoft:windows_10"
                             ]

@@ -52,8 +52,8 @@ if __name__ == "__main__":
     myScanner.Send_ARP_Scan()
     myScanner.Log_ARP_Results()
 
-    # myScanner.Send_Nmap_Scan()
-    # myScanner.Log_Nmap_Results()
+    myScanner.Send_Nmap_Scan()
+    myScanner.Log_Nmap_Results()
 
     print()
     print("Initiating CVE Lookup")

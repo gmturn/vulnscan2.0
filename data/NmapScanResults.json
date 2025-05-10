@@ -53,33 +53,18 @@
                 "output": "false"
             },
             {
-                "id": "samba-vuln-cve-2012-1182",
+                "id": "smb-vuln-ms10-061",
                 "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
             },
             {
-                "id": "smb-vuln-ms10-061",
+                "id": "samba-vuln-cve-2012-1182",
                 "output": "Could not negotiate a connection:SMB: Failed to receive bytes: ERROR"
             }
         ]
     },
     {
-        "host_ip": "192.168.1.70",
-        "os_info": "Microsoft Windows 11 21H2",
-        "open_ports": [
-            "Functionality Not Yet Added"
-        ],
-        "services": {
-            "upnp": {
-                "port": 2869,
-                "product": "Microsoft IIS httpd",
-                "version": ""
-            }
-        },
-        "vulnerabilities": []
-    },
-    {
-        "host_ip": "192.168.1.79",
-        "os_info": null,
+        "host_ip": "192.168.1.82",
+        "os_info": "FreeBSD 11.0-RELEASE - 12.0-CURRENT",
         "open_ports": [
             "Functionality Not Yet Added"
         ],
